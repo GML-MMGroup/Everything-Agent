@@ -1434,7 +1434,7 @@ html[lang="en"] {
   margin: -32px auto 0;
   padding: 24px 0;
   border-radius: 28px;
-  background: rgba(7, 10, 15, 0.78);
+  background: rgba(7, 10, 15, 0.52);
   backdrop-filter: blur(24px) saturate(110%);
   -webkit-backdrop-filter: blur(24px) saturate(110%);
   box-shadow:
@@ -1457,7 +1457,7 @@ html[lang="en"] {
 }
 .hero-highlight dd {
   margin: 8px auto 0;
-  color: #b5becb;
+  color: #c5ccd6;
   font-size: 13px;
   line-height: 1.6;
   max-width: 240px;
@@ -1514,5 +1514,20 @@ html[lang="en"] {
 ) {
   .hero-highlights {
     background: #0c1016;
+  }
+}
+
+/* Compact English labels stay on a single line without clipping. */
+html[lang="en"] .hero-highlight dt,
+html[lang="en"] .hero-highlight dd {
+  white-space: nowrap;
+  text-wrap: nowrap;
+}
+@media (max-width: 359px) {
+  html[lang="en"] .hero-highlight {
+    padding-inline: 8px;
+  }
+  html[lang="en"] .hero-highlight dt {
+    font-size: 18px;
   }
 }

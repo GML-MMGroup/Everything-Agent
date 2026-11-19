@@ -16,11 +16,12 @@
       highlightsLabel: "Product highlights",
       formatsDetail: "File formats",
       indexingTitle: "Local indexing",
-      indexingDetail: "Original file paths stay unchanged",
+      indexingDetail: "Paths unchanged",
       localAiTitle: "Local AI",
-      localAiDetail: "Image and video models: local deployment or API",
+      localAiDetail: "Local or API",
+      localAiDescription: "Image and video models: local deployment or API",
       securityTitle: "Data security",
-      securityDetail: "All data is stored locally",
+      securityDetail: "Stored locally",
       promoTitle: "See Everything Agent in action.",
       demoSoon: "Demo coming soon",
       manageTitle: "A place for everything.",
@@ -109,6 +110,7 @@
       indexingDetail: "不改变源文件路径",
       localAiTitle: "AI 能力本地化",
       localAiDetail: "图片、视频模型支持本地部署或 API",
+      localAiDescription: "图片、视频模型支持本地部署或 API",
       securityTitle: "数据安全",
       securityDetail: "数据全都存储在本地",
       promoTitle: "看看 Everything Agent 如何工作。",
@@ -347,6 +349,9 @@
     );
     $(".language-switch").setAttribute("aria-label", t("language"));
     $(".hero-highlights").setAttribute("aria-label", t("highlightsLabel"));
+    const aiDetail = $('[data-i18n="localAiDetail"]');
+    aiDetail.title = t("localAiDescription");
+    aiDetail.setAttribute("aria-label", t("localAiDescription"));
     navigation.setAttribute("aria-label", t("navigation"));
     menuButton.setAttribute(
       "aria-label",
