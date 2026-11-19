@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta
+      name="description"
+      content="Everything Agent，Agent 驱动的本地数据管理与数据应用平台。统一管理文件，用自然语言检索，用自己的素材创作。"
+    />
+    <meta
+      property="og:title"
+      content="Everything Agent — AI 时代的 Everything"
+    />
+    <meta
+      property="og:description"
+      content="Agent 驱动的本地数据管理与数据应用平台。"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://gml-mmgroup.github.io/Everything-Agent/"
+    />
+    <meta
+      property="og:image"
+      content="https://gml-mmgroup.github.io/Everything-Agent/assets/data-management.png"
+    />
+    <title>Everything Agent — AI 时代的 Everything</title>
+    <link
+      rel="canonical"
+      href="https://gml-mmgroup.github.io/Everything-Agent/"
+    />
+    <link rel="icon" href="assets/logo.png" type="image/png" />
+    <link
+      rel="preload"
+      href="assets/fonts/Geist.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="site-config.js" defer></script>
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <svg
+      class="icon-definitions"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <symbol id="i-download" viewBox="0 0 24 24">
+        <path
+          d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"
+        />
+      </symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24">
+        <path d="M7 17 17 7M7 7h10v10" />
+      </symbol>
+      <symbol id="i-expand" viewBox="0 0 24 24">
+        <path
+          d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"
+        />
+      </symbol>
+      <symbol id="i-close" viewBox="0 0 24 24">
+        <path d="m18 6-12 12M6 6l12 12" />
+      </symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24">
+        <path d="M4 6h16M4 12h16M4 18h16" />
+      </symbol>
+    </svg>
+    <a class="skip-link" href="#main" data-i18n="skip">跳到正文</a>
+    <header class="site-header">
+      <div class="nav-shell container">
+        <a class="brand" href="#top" aria-label="Everything Agent"
+          ><img
+            src="assets/logo.png"
+            width="2172"
+            height="724"
+            alt="Everything Agent"
+        /></a>
+        <button
+          class="menu-toggle icon-button"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          aria-label="打开菜单"
+          data-i18n-aria="menuOpen"
+        >
+          <svg class="icon"><use href="#i-menu" /></svg>
+        </button>
+        <nav
+          id="site-nav"
+          class="site-nav"
+          aria-label="主导航"
+          data-i18n-aria="navigation"
+        >
+          <a
+            href="#management"
+            data-section-link="management"
+            data-i18n="navManagement"
+            >数据管理</a
+          >
+          <a href="#search" data-section-link="search" data-i18n="navSearch"
+            >智能检索</a
+          >
+          <a
+            href="#creation"
+            data-section-link="creation"
+            data-i18n="navCreation"
+            >创作空间</a
+          >
+          <a
+            data-link="repository"
+            href="https://github.com/GML-MMGroup/Everything-Agent"
+            class="github-link"
+            >GitHub <svg class="icon"><use href="#i-arrow" /></svg
+          ></a>
+          <button
+            class="language-toggle"
+            type="button"
+            aria-label="Switch to English"
+            lang="en"
+          >
+            English
+          </button>
+          <a
+            class="button button-primary nav-download"
+            data-link="download"
+            href="https://github.com/GML-MMGroup/Everything-Agent/releases/download/v0.5.2/AssetOS-Setup-0.5.2.exe"
+            ><svg class="icon"><use href="#i-download" /></svg
+            ><span data-i18n="navDownload">Windows 下载</span></a
+          >
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <section class="hero container" id="top" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow" data-i18n="tagline">AI 时代的 Everything</p>
+          <h1 id="hero-title" data-i18n="heroTitle">
+            让数据管得好，<br />找得到，用得爽。
+          </h1>
+          <p class="hero-description" data-i18n="heroDescription">
+            Agent 驱动的本地数据管理与数据应用平台。
+          </p>
+          <div class="hero-actions">
+            <a
+              class="button button-primary"
+              data-link="download"
+              href="https://github.com/GML-MMGroup/Everything-Agent/releases/download/v0.5.2/AssetOS-Setup-0.5.2.exe"
+              ><svg class="icon"><use href="#i-download" /></svg
+              ><span data-i18n="download">下载 Windows 版</span></a
+            >
+            <a class="button button-secondary" href="#management"
+              ><span data-i18n="explore">查看演示</span
+              ><span aria-hidden="true">↓</span></a
+            >
+          </div>
+        </div>
+        <figure class="hero-preview">
+          <a
+            class="screenshot-link"
+            data-lightbox="management"
+            href="assets/data-management.png"
+            aria-label="放大查看数据资产库截图"
+            data-i18n-aria="zoomManagement"
+            ><img
+              src="assets/data-management.png"
+              width="1920"
+              height="1032"
+              alt="数据资产库：分类文件夹和图片、视频、音频、文档预览"
+              data-i18n-alt="altManagement"
+              fetchpriority="high" /><span
+              class="expand-mark"
+              aria-hidden="true"
+              ><svg class="icon"><use href="#i-expand" /></svg></span
+          ></a>
+          <figcaption>
+            <span data-i18n="heroCaption">你的素材，在同一个工作空间</span
+            ><span class="caption-meta" data-i18n="imageHint"
+              >点击查看原图</span
+            >
+          </figcaption>
+        </figure>
+      </section>
+
+      <section
+        class="feature feature-management"
+        id="management"
+        aria-labelledby="management-title"
+      >
+        <div class="container content-width">
+          <div class="section-heading">
+            <div>
+              <p class="section-label">
+                <span class="section-number">01</span
+                ><span data-i18n="navManagement">数据管理</span>
+              </p>
+              <h2 id="management-title" data-i18n="managementTitle">
+                分散的文件，统一管理
+              </h2>
+            </div>
+            <p class="section-description" data-i18n="managementDescription">
+              图片、视频、音频和文档统一纳管，保留原路径。AI
+              自动解析内容，按项目归类，悬停即可预览。
+            </p>
+          </div>
+          <ol class="workflow management-workflow">
+            <li>
+              <span class="step-number">1</span>
+              <div>
+                <h3 data-i18n="stepCreate">新建资产分类</h3>
+                <p data-i18n="stepCreateDescription">为项目留出一个位置</p>
+              </div>
+            </li>
+            <li>
+              <span class="step-number">2</span>
+              <div>
+                <h3 data-i18n="stepImport">导入素材</h3>
+                <p data-i18n="stepImportDescription">统一纳管，保留原路径</p>
+              </div>
+            </li>
+            <li>
+              <span class="step-number">3</span>
+              <div>
+                <h3 data-i18n="stepPreview">预览分类</h3>
+                <p data-i18n="stepPreviewDescription">悬停查看，快速浏览</p>
+              </div>
+            </li>
+          </ol>
+          <figure class="demo-figure">
+            <div class="demo-media" data-media="management">
+              <a
+                class="screenshot-link"
+                data-lightbox="management"
+                href="assets/data-management.png"
+                aria-label="放大查看数据资产库截图"
+                data-i18n-aria="zoomManagement"
+                ><img
+                  src="assets/data-management.png"
+                  width="1920"
+                  height="1032"
+                  loading="lazy"
+                  alt="数据资产库：分类文件夹和图片、视频、音频、文档预览"
+                  data-i18n-alt="altManagement" /><span
+                  class="expand-mark"
+                  aria-hidden="true"
+                  ><svg class="icon"><use href="#i-expand" /></svg></span
+              ></a>
+            </div>
+            <figcaption>
+              <span data-i18n="captionManagement"
+                >数据资产库 · 分类与素材预览</span
+              ><span class="caption-meta media-hint" data-i18n="imageHint"
+                >点击查看原图</span
+              >
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section
+        class="feature feature-search"
+        id="search"
+        aria-labelledby="search-title"
+      >
+        <div class="container content-width">
+          <div class="section-heading">
+            <div>
+              <p class="section-label">
+                <span class="section-number">02</span
+                ><span data-i18n="navSearch">智能检索</span>
+              </p>
+              <h2 id="search-title" data-i18n="searchTitle">
+                记得一点线索，<br />就能开始找
+              </h2>
+            </div>
+            <p class="section-description" data-i18n="searchDescription">
+              不必记住文件名。描述内容、给出一张图片，或直接向文档提问。
+            </p>
+          </div>
+          <div class="search-example">
+            <span class="example-label" data-i18n="shownExample">图中示例</span>
+            <p data-i18n="patentQuery">找马飞是第一发明人的专利。</p>
+          </div>
+          <figure class="demo-figure">
+            <div class="demo-media" data-media="search">
+              <a
+                class="screenshot-link"
+                data-lightbox="search"
+                href="assets/data-search.png"
+                aria-label="放大查看智能检索截图"
+                data-i18n-aria="zoomSearch"
+                ><img
+                  src="assets/data-search.png"
+                  width="1920"
+                  height="1032"
+                  loading="lazy"
+                  alt="Agent 根据发明人信息找到专利，并打开证书原文"
+                  data-i18n-alt="altSearch" /><span
+                  class="expand-mark"
+                  aria-hidden="true"
+                  ><svg class="icon"><use href="#i-expand" /></svg></span
+              ></a>
+            </div>
+            <figcaption>
+              <span data-i18n="captionSearch"
+                >按内容检索 · 专利原文与 Agent 检索结果</span
+              ><span class="caption-meta media-hint" data-i18n="imageHint"
+                >点击查看原图</span
+              >
+            </figcaption>
+          </figure>
+          <div class="query-examples">
+            <p class="examples-intro" data-i18n="examplesIntro">还可以这样问</p>
+            <ul class="query-list">
+              <li data-i18n="queryOrder">找实付约 30 元的订单截图。</li>
+              <li data-i18n="queryAudio">找录音里提到海底捞的那句话。</li>
+              <li data-i18n="queryVideo">这张截图出自哪个视频、什么位置？</li>
+              <li data-i18n="queryPerson">找出有这个人的合照。</li>
+              <li data-i18n="querySimilar">找与这张产品图相似的图片。</li>
+              <li data-i18n="queryContract">GEO 系统的合同金额是多少？</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="feature feature-creation"
+        id="creation"
+        aria-labelledby="creation-title"
+      >
+        <div class="container content-width">
+          <div class="section-heading">
+            <div>
+              <p class="section-label">
+                <span class="section-number">03</span
+                ><span data-i18n="navCreation">创作空间</span>
+              </p>
+              <h2 id="creation-title" data-i18n="creationTitle">
+                用自己的素材，<br />完成下一件作品
+              </h2>
+            </div>
+            <p class="section-description" data-i18n="creationDescription">
+              找到素材之后，让想法接着往前走。从已有资产出发，在对话中组织、生成与完善。
+            </p>
+          </div>
+          <figure class="demo-figure">
+            <div class="demo-media" data-media="creation">
+              <a
+                class="screenshot-link"
+                data-lightbox="creation"
+                href="assets/data-creation.png"
+                aria-label="放大查看无限画布截图"
+                data-i18n-aria="zoomCreation"
+                ><img
+                  src="assets/data-creation.png"
+                  width="1920"
+                  height="1032"
+                  loading="lazy"
+                  alt="无限画布：从素材库导入产品和人物图片，通过节点连接素材"
+                  data-i18n-alt="altCreation" /><span
+                  class="expand-mark"
+                  aria-hidden="true"
+                  ><svg class="icon"><use href="#i-expand" /></svg></span
+              ></a>
+            </div>
+            <figcaption>
+              <span data-i18n="captionCreation"
+                >无限画布 · 素材、节点与对话工作区</span
+              ><span class="caption-meta media-hint" data-i18n="imageHint"
+                >点击查看原图</span
+              >
+            </figcaption>
+          </figure>
+          <div class="creation-details">
+            <article>
+              <h3 data-i18n="canvasTitle">无限画布</h3>
+              <p data-i18n="canvasDescription">
+                从资产库导入素材，通过对话组织节点、连接素材、生成内容。
+              </p>
+            </article>
+            <article>
+              <h3 data-i18n="workshopTitle">生成工坊</h3>
+              <p data-i18n="workshopDescription">
+                说出需求，Agent 选择工具、填写参数，生成图像、视频或音频。
+              </p>
+            </article>
+          </div>
+          <ol
+            class="creation-workflow"
+            aria-label="创作流程"
+            data-i18n-aria="creationFlow"
+          >
+            <li data-i18n="flowLibrary">资产库</li>
+            <li data-i18n="flowWorkspace">创作空间</li>
+            <li data-i18n="flowResult">生成结果</li>
+          </ol>
+        </div>
+      </section>
+
+      <section
+        class="download-section"
+        id="download"
+        aria-labelledby="download-title"
+      >
+        <div class="container content-width download-layout">
+          <div>
+            <p class="eyebrow">
+              Everything Agent
+              <span class="release-version" data-version>v0.5.2</span>
+            </p>
+            <h2 id="download-title" data-i18n="downloadTitle">
+              让手边的数据，<br />成为下一步的起点。
+            </h2>
+          </div>
+          <div class="download-action">
+            <a
+              class="button button-primary"
+              data-link="download"
+              href="https://github.com/GML-MMGroup/Everything-Agent/releases/download/v0.5.2/AssetOS-Setup-0.5.2.exe"
+              ><svg class="icon"><use href="#i-download" /></svg
+              ><span data-i18n="download">下载 Windows 版</span></a
+            ><a
+              class="release-link"
+              data-link="release"
+              href="https://github.com/GML-MMGroup/Everything-Agent/releases/tag/v0.5.2"
+              ><span data-i18n="releaseNotes">查看版本说明</span
+              ><svg class="icon"><use href="#i-arrow" /></svg
+            ></a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer container content-width">
+      <div class="footer-main">
+        <a class="brand footer-brand" href="#top" aria-label="Everything Agent"
+          ><img
+            src="assets/logo.png"
+            width="2172"
+            height="724"
+            alt="Everything Agent"
+            loading="lazy"
+        /></a>
+        <p data-i18n="licenseCopy">
+          个人非商业使用免费，商业使用须取得书面授权。
+        </p>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 GML-MMGroup</span>
+        <nav aria-label="页脚链接" data-i18n-aria="footerNavigation">
+          <a
+            data-link="repository"
+            href="https://github.com/GML-MMGroup/Everything-Agent"
+            >GitHub</a
+          ><a
+            data-link="release"
+            href="https://github.com/GML-MMGroup/Everything-Agent/releases/tag/v0.5.2"
+            data-i18n="release"
+            >版本发布</a
+          ><a
+            data-link="license"
+            href="https://github.com/GML-MMGroup/Everything-Agent/blob/main/LICENSE.txt"
+            data-i18n="license"
+            >许可</a
+          ><a data-link="email" href="mailto:xuhongbo@gml.ac.cn"
+            >xuhongbo@gml.ac.cn</a
+          >
+        </nav>
+      </div>
+    </footer>
+    <dialog class="lightbox" aria-labelledby="lightbox-caption">
+      <div class="lightbox-toolbar">
+        <span id="lightbox-caption"></span>
+        <div>
+          <button class="lightbox-zoom" type="button" data-i18n="actualSize">
+            原始大小</button
+          ><button
+            class="icon-button lightbox-close"
+            type="button"
+            aria-label="关闭预览"
+            data-i18n-aria="closePreview"
+            autofocus
+          >
+            <svg class="icon"><use href="#i-close" /></svg>
+          </button>
+        </div>
+      </div>
+      <div
+        class="lightbox-viewport"
+        tabindex="0"
+        aria-label="图片预览，可用方向键滚动"
+        data-i18n-aria="previewArea"
+      >
+        <img class="lightbox-image" alt="" />
+      </div>
+      <div class="lightbox-footer">
+        <span data-i18n="previewHint">原始大小可滚动查看细节</span
+        ><span><kbd>Esc</kbd> <span data-i18n="close">关闭</span></span>
+      </div>
+    </dialog>
+  </body>
+</html>
