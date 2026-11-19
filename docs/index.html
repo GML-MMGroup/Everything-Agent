@@ -33,21 +33,21 @@
     <link rel="icon" href="assets/logo.png" type="image/png" />
     <link
       rel="preload"
-      href="assets/fonts/HarmonyOS_Sans_Regular.ttf"
+      href="assets/fonts/HarmonyOS_Sans_Regular_Italic.ttf"
       as="font"
       type="font/ttf"
       crossorigin
     />
     <link
       rel="preload"
-      href="assets/fonts/HarmonyOS_Sans_Medium.ttf"
+      href="assets/fonts/HarmonyOS_Sans_Medium_Italic.ttf"
       as="font"
       type="font/ttf"
       crossorigin
     />
-    <link rel="stylesheet" href="styles.css?v=20261119-3" />
-    <script src="site-config.js?v=20261119-3" defer></script>
-    <script src="main.js?v=20261119-3" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20261119-4" />
+    <script src="site-config.js?v=20261119-4" defer></script>
+    <script src="main.js?v=20261119-4" defer></script>
   </head>
   <body>
     <svg
@@ -65,9 +65,6 @@
       </symbol>
       <symbol id="i-play" viewBox="0 0 24 24">
         <path d="m9 5 11 7-11 7Z" />
-      </symbol>
-      <symbol id="i-pause" viewBox="0 0 24 24">
-        <path d="M8 5v14M16 5v14" />
       </symbol>
       <symbol id="i-close" viewBox="0 0 24 24">
         <path d="m18 6-12 12M6 6l12 12" />
@@ -124,7 +121,7 @@
     ><a class="skip-link" href="#main"
       ><span data-i18n="skip">Skip to content</span></a
     >
-    <header class="site-header">
+    <header class="site-header over-hero">
       <div class="nav-shell container">
         <a class="brand" href="#top" aria-label="Everything Agent"
           ><img
@@ -242,14 +239,6 @@
             </div>
           </div>
         </div>
-        <button
-          class="motion-toggle icon-button"
-          type="button"
-          aria-label="Pause animation"
-          hidden
-        >
-          <svg class="icon" aria-hidden="true"><use href="#i-pause" /></svg>
-        </button>
       </section>
       <div class="feature-stage">
         <div class="pipo-background" aria-hidden="true">
@@ -561,28 +550,24 @@
           <div class="contact-heading">
             <img
               class="developer-avatar"
-              src="assets/media/developer-avatar.svg"
+              src="assets/media/touxiang.png"
               width="88"
               height="88"
-              alt="Developer avatar placeholder"
+              alt="Developer avatar"
               loading="lazy"
             />
             <h3 data-i18n="contactTitle">Contact the developer</h3>
           </div>
-          <div class="wechat-row">
-            <span data-i18n="wechat" class="contact-label">WeChat</span
-            ><span id="wechat-id" class="wechat-id" tabindex="0"
-              >bebe_12138</span
-            ><button
-              class="copy-wechat icon-button"
+          <div class="contact-actions">
+            <button
+              class="contact-copy"
               data-copy="wechat"
               type="button"
               aria-label="Copy WeChat ID"
             >
-              <svg class="icon" aria-hidden="true"><use href="#i-copy" /></svg>
+              <span data-i18n="wechat">WeChat</span
+              ><svg class="icon" aria-hidden="true"><use href="#i-copy" /></svg>
             </button>
-          </div>
-          <div class="contact-actions">
             <button
               class="contact-copy"
               data-copy="email"

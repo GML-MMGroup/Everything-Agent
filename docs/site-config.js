@@ -13,8 +13,8 @@ window.EVERYTHING_AGENT_CONFIG = {
     poster: "assets/media/hero-background-poster.jpg",
   },
   avatar: {
-    src: "assets/media/developer-avatar.svg",
-    alt: { en: "Developer avatar placeholder", zh: "开发者头像占位图" },
+    src: "assets/media/touxiang.png",
+    alt: { en: "Developer avatar", zh: "开发者头像" },
   },
   images: [
     {

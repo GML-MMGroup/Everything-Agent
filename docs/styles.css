@@ -1,5 +1,19 @@
 @font-face {
   font-family: "HarmonyOS Sans";
+  src: url("assets/fonts/HarmonyOS_Sans_Regular_Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "HarmonyOS Sans";
+  src: url("assets/fonts/HarmonyOS_Sans_Medium_Italic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "HarmonyOS Sans";
   src: url("assets/fonts/HarmonyOS_Sans_Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
@@ -149,10 +163,12 @@ button[hidden],
   transform: none;
 }
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 20;
-  background: rgba(250, 249, 239, 0.96);
+  background: transparent;
 }
 .nav-shell {
   display: flex;
@@ -568,21 +584,9 @@ h1 {
   font-weight: 500;
   margin-bottom: 20px;
 }
-.wechat-row {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
 .contact-label {
   color: var(--secondary);
   font-size: 14px;
-}
-.wechat-id {
-  user-select: all;
-  font-size: 16px;
-}
-.copy-wechat {
-  background: #fff;
 }
 .copy-feedback {
   font-size: 13px;
@@ -1155,17 +1159,6 @@ kbd {
 .hero :focus-visible {
   outline-color: #a0e1b9;
 }
-.motion-toggle {
-  position: absolute;
-  top: 12px;
-  right: max(20px, calc((100% - 1240px) / 2));
-  color: #f7f8f3;
-  background: #292d2b;
-  z-index: 2;
-}
-.motion-toggle:hover {
-  background: #424a45;
-}
 .feature-stage {
   position: relative;
   isolation: isolate;
@@ -1243,8 +1236,8 @@ kbd {
 .developer-avatar {
   width: 88px;
   height: 88px;
-  border-radius: 50%;
-  object-fit: cover;
+  border-radius: 0;
+  object-fit: contain;
   flex: none;
 }
 .contact-heading h3 {
@@ -1253,21 +1246,24 @@ kbd {
   line-height: 1.4;
 }
 .contact-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
   margin-top: 16px;
+  max-width: 440px;
 }
 .contact-copy {
   display: inline-flex;
-  gap: 16px;
+  min-width: 0;
+  gap: 8px;
   align-items: center;
   justify-content: space-between;
   min-height: 44px;
   border: 0;
   border-radius: 8px;
-  padding: 8px 16px;
+  padding: 8px 12px;
   background: #e8ece4;
+  white-space: nowrap;
   font-size: 14px;
 }
 .contact-copy:hover {
@@ -1296,5 +1292,97 @@ kbd {
   .developer-avatar {
     width: 72px;
     height: 72px;
+  }
+}
+
+/* Transparent navigation stays legible over the hero and the light sections. */
+html[lang="en"] {
+  font-style: italic;
+}
+[data-language],
+[data-link="repository"] {
+  font-style: italic;
+}
+.site-header.is-scrolled {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.site-header.over-hero {
+  color: #f7f8f3;
+}
+.site-header.over-hero .language-switch button {
+  color: #dee6df;
+}
+.site-header.over-hero .language-switch button[aria-pressed="true"],
+.site-header.over-hero .site-nav > a:not(.button):hover {
+  color: #9ce1b5;
+}
+.site-header.over-hero :focus-visible {
+  outline-color: #9ce1b5;
+}
+.site-header.over-hero .menu-toggle {
+  background: rgba(28, 36, 31, 0.8);
+  color: #f7f8f3;
+}
+.hero {
+  padding-top: clamp(240px, 29vh, 360px);
+}
+.hero-background {
+  height: max(850px, 100svh);
+}
+.hero-background-video {
+  object-fit: contain;
+  object-position: center top;
+}
+.hero-background::after {
+  background: linear-gradient(
+    180deg,
+    rgba(10, 14, 12, 0.08) 0%,
+    rgba(10, 14, 12, 0.22) 22%,
+    rgba(10, 14, 12, 0.68) 38%,
+    rgba(10, 14, 12, 0.72) 66%,
+    #111312 100%
+  );
+}
+.hero-perspective {
+  margin-top: 80px;
+}
+@media (max-width: 1023px) {
+  .site-header .site-nav {
+    background: rgba(250, 249, 239, 0.96);
+  }
+  .site-header.over-hero .site-nav {
+    background: rgba(15, 21, 18, 0.96);
+  }
+  .contact-copy .icon {
+    width: 16px;
+    height: 16px;
+  }
+  .contact-copy {
+    font-size: 13px;
+    padding-inline: 6px;
+    gap: 4px;
+  }
+}
+@media (max-width: 599px) {
+  .hero {
+    padding-top: clamp(200px, 28svh, 280px);
+  }
+  .hero-background {
+    height: 100svh;
+    min-height: 760px;
+  }
+  .hero-background-video {
+    object-position: center 160px;
+  }
+  .hero-perspective {
+    margin-top: 48px;
+  }
+  .contact-copy {
+    font-size: 12px;
+  }
+  .contact-copy .icon {
+    width: 16px;
+    height: 16px;
   }
 }

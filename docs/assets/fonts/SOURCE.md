@@ -16,3 +16,16 @@ The current resource-page CDN link returned an empty response in this environmen
 | HarmonyOS_Sans_SC_Medium.ttf  | 6ed1553edccddc48eb27ff25d134a4a715cf54211238d4840b3038576cba1944 |
 
 The website uses the Latin and Simplified Chinese faces under one CSS family with Unicode ranges, in weights 400 and 500. A visible font notice and link to the bundled agreement appear in the website footer.
+
+## English italic faces
+
+The user requested italic English throughout. Two additional, unmodified files were extracted from the same official Huawei archive (`HarmonyOS Sans/HarmonyOS_Sans_Italic/`):
+
+| File                              | SHA-256                                                          |
+| --------------------------------- | ---------------------------------------------------------------- |
+| HarmonyOS_Sans_Regular_Italic.ttf | 3c90775b60f11328c3a84d7ba75443a667dee7458cef765ceb0fa10badad3c7e |
+| HarmonyOS_Sans_Medium_Italic.ttf  | 8035933cb913dd714de3cdcb74044477f9c2ddc315ccea9f81ec1e7f593ae095 |
+
+These are actual italic faces, not synthesized slants. The same bundled HarmonyOS license applies.
+
+Lettown Hills Italic remains unbundled. Its official [Webfonts license](https://www.myfonts.com/products/italic-lettown-hills-15036/licenses) is sold separately; the inspected free download pages state personal-use restrictions. Direct requests to FreeFontDownload and FontsHut returned HTTP 403. No font named Lettown Hills was substituted, relabelled, or claimed as loaded.

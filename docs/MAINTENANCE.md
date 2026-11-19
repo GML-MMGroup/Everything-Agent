@@ -56,7 +56,7 @@
 
 首屏透视和呼吸动画使用两个独立容器，7 秒循环，上下移动 8px、最大缩放 0.4%。离开视口、页面隐藏或用户要求减少动态效果时停止；手机取消透视。
 
-原生 `dialog` 支持键盘、Esc、关闭按钮、原始大小滚动及焦点恢复。微信复制失败时保留可选择的号码并显示手动复制提示。邮箱、主页仅提供复制按钮，不在可见页面或跳转链接中显示地址；先使用 Clipboard API，失败后尝试临时离屏输入框复制，仍失败时只显示重试提示，不暴露地址。
+原生 `dialog` 支持键盘、Esc、关闭按钮、原始大小滚动及焦点恢复。微信、邮箱、主页统一为一行三个复制按钮，不在可见页面或跳转链接中显示账号和地址；先使用 Clipboard API，失败后尝试临时离屏输入框复制，仍失败时只显示重试提示，不暴露地址。
 
 ## 本地预览与发布
 
@@ -81,9 +81,11 @@ python3 -m http.server 4174 --bind 127.0.0.1 --directory /tmp/everything-agent-p
 ## 首屏背景与联系方式（2026-11-19 更新）
 
 - `site-config.js` 的 `background.src` 指向用户提供的 `assets/media/motionsites-background-d38a1a89.mp4`（12.042 秒，1920×1080，无音轨）。原视频未经修改；`background.poster` 是由该视频第 4 秒提取的 `hero-background-poster.jpg`。
-- 视频仅用于首屏装饰，不能替代产品截图或宣传视频。静音循环、内联播放；离开首屏、切换后台时暂停。右上角的暂停按钮同时控制首屏视频和产品图浮动。初访启用减少动态效果时仅显示封面，不请求 MP4；播放被浏览器拒绝时可手动启动，资源失败时保留封面。
+- 视频仅用于首屏装饰，不能替代产品截图或宣传视频。静音循环、内联播放；离开首屏、切换后台时暂停。背景视频不显示播放/暂停按钮或原生控件。初访启用减少动态效果时仅显示封面，不请求 MP4；播放被浏览器拒绝时保留封面，之后的正常点击或键盘操作会重试；资源失败时保留封面。
 - 功能区将用户提供的 Pipo / 21st.dev 配方转写为原生 CSS（奶油白 `#FAF9EF`、蜜桃 `#E6B093`、浅蓝 `#A3CEFF`、静态柔化与纹理）。来源：[Pipo gradient recipe](https://21st.dev/community/gradients/editor?from=58063e64-512c-42dc-b70f-8f7888ec8067)。现有项目无需 React、shadcn、Tailwind 或 TypeScript；背景样式在 `styles.css` 的 `.pipo-background`，页面容器在 `index.html`。
 - 语言切换显示 `En / Zh`，辅助技术标签仍完整标识 English / 中文。
-- `avatar.src` 和 `avatar.alt.en/zh` 集中配置头像。目前使用中性人物剪影 `assets/media/developer-avatar.svg`；没有猜测开发者身份或使用其他人的照片。替换头像后同步更新路径和 alt。
-- Lettown Hills Italic 尚未接入：本地未提供字体文件，作者官方销售页提供独立的 Webfonts 许可。本轮继续使用现有 HarmonyOS Sans，不声明已经加载 Lettown Hills。准备可用于此官网的网页字体文件和许可后，再替换英文页面字体并验证实际渲染。[官方字体与授权](https://www.myfonts.com/products/italic-lettown-hills-15036/licenses)。
+- `avatar.src` 和 `avatar.alt.en/zh` 集中配置头像。目前使用用户提供的 `assets/media/touxiang.png`，保持透明背景与完整比例。可在 [GitHub 素材目录上传页面](https://github.com/GML-MMGroup/Everything-Agent/upload/main/docs/assets/media) 上传头像图片，然后更新 `avatar.src` 和双语 alt 并提交；Pages 自动发布。也可用新图片替换同名文件。这是静态官网的头像更新方式，不提供让任意访客更改公开开发者头像的入口。
+- Lettown Hills Italic 尚未接入：本地未提供字体文件，作者官方销售页提供独立的 Webfonts 许可。本轮尝试的 FreeFontDownload、FontsHut 下载入口均返回 HTTP 403，且免费条款仅限个人试用。英文页面已切换为原华为官方字体包的 HarmonyOS Sans Regular/Medium Italic 真实斜体，中文保持正体，不声明已经加载 Lettown Hills。准备可用于此官网的网页字体文件和许可后，再替换英文页面字体并验证实际渲染。[官方字体与授权](https://www.myfonts.com/products/italic-lettown-hills-15036/licenses)。
 - 本轮设计复查以用户指定背景为准：深色视频首屏配浅色文字；下方静态渐变；保留真实截图与签名 Logo；联系区域加入头像并收敛为复制操作。未生成或改写产品结果。
+
+- 导航固定透明叠在首屏视频上，滚动进入功能区后切换文字颜色；桌面首屏标题上边距 `clamp(240px, 29vh, 360px)`，手机为 `clamp(200px, 28svh, 280px)`。背景视频使用 `object-fit: contain` 保留完整画面，保持九个产品图展位和独立宣传视频展位。

@@ -60,10 +60,7 @@
       copiedEmail: "Email copied",
       copiedHomepage: "Homepage copied",
       copyAddressFailed: "Couldn’t copy. Please try again.",
-      pauseMotion: "Pause animation",
-      resumeMotion: "Resume animation",
-      copied: "Copied",
-      copyFailed: "Select the ID to copy it manually",
+      copied: "WeChat ID copied",
       homepage: "Homepage",
       email: "Email",
       fontNotice: "Typeset in HarmonyOS Sans",
@@ -140,10 +137,7 @@
       copiedEmail: "邮箱已复制",
       copiedHomepage: "主页地址已复制",
       copyAddressFailed: "复制未成功，请重试。",
-      pauseMotion: "暂停动画",
-      resumeMotion: "继续动画",
-      copied: "已复制",
-      copyFailed: "可选中号码手动复制",
+      copied: "微信号已复制",
       homepage: "个人主页",
       email: "邮箱",
       fontNotice: "本站使用 HarmonyOS Sans 字体",
@@ -202,7 +196,6 @@
   $$("[data-link]").forEach((link) => {
     link.href = links[link.dataset.link];
   });
-  $("#wechat-id").textContent = config.wechat;
   $(".developer-avatar").src = config.avatar.src;
 
   function placeholder(item) {
@@ -362,11 +355,10 @@
     if (pending) pending.textContent = t(videoState);
     const video = $("video", promo);
     if (video) video.setAttribute("aria-label", t("videoLabel"));
-    $(".copy-wechat").setAttribute("aria-label", t("copyWechat"));
+    $('[data-copy="wechat"]').setAttribute("aria-label", t("copyWechat"));
     $('[data-copy="email"]').setAttribute("aria-label", t("copyEmail"));
     $('[data-copy="homepage"]').setAttribute("aria-label", t("copyHomepage"));
     $(".developer-avatar").alt = config.avatar.alt[language];
-    updateMotionLabel();
     $(".copy-feedback").textContent = copyState ? t(copyState) : "";
     $(".footer-meta nav").setAttribute("aria-label", t("footerNavigation"));
     $(".lightbox-close").setAttribute("aria-label", t("closePreview"));
@@ -496,17 +488,7 @@
             email: "copiedEmail",
             homepage: "copiedHomepage",
           }[kind]
-        : kind === "wechat"
-          ? "copyFailed"
-          : "copyAddressFailed";
-      if (!success && kind === "wechat") {
-        const range = document.createRange();
-        range.selectNodeContents($("#wechat-id"));
-        const selection = window.getSelection();
-        selection.removeAllRanges();
-        selection.addRange(range);
-        $("#wechat-id").focus({ preventScroll: true });
-      }
+        : "copyAddressFailed";
       $(".copy-feedback").textContent = t(copyState);
       if (success)
         copyTimer = setTimeout(() => {
@@ -519,31 +501,17 @@
   // Independent wrappers keep perspective and continuous motion from overwriting each other.
   const breathing = $(".hero-breathe");
   const backgroundVideo = $(".hero-background-video");
-  const motionButton = $(".motion-toggle");
   let heroVisible = false;
   let backgroundVisible = false;
-  let motionPaused = false;
   let backgroundFailed = false;
+  let autoplayBlocked = false;
   let playPending = false;
   backgroundVideo.muted = true;
   backgroundVideo.poster = config.background.poster;
-  function updateMotionLabel() {
-    motionButton.setAttribute(
-      "aria-label",
-      t(motionPaused ? "resumeMotion" : "pauseMotion"),
-    );
-    motionButton.title = t(motionPaused ? "resumeMotion" : "pauseMotion");
-    $("use", motionButton).setAttribute(
-      "href",
-      motionPaused ? "#i-play" : "#i-pause",
-    );
-  }
   function updateMotion() {
-    const allowed = !document.hidden && !reducedMotion.matches && !motionPaused;
+    const allowed = !document.hidden && !reducedMotion.matches;
     breathing.classList.toggle("is-running", heroVisible && allowed);
-    motionButton.hidden = reducedMotion.matches;
-    updateMotionLabel();
-    if (backgroundVisible && allowed && !backgroundFailed) {
+    if (backgroundVisible && allowed && !backgroundFailed && !autoplayBlocked) {
       if (!backgroundVideo.getAttribute("src"))
         backgroundVideo.src = config.background.src;
       if (backgroundVideo.paused && !playPending) {
@@ -551,11 +519,7 @@
         backgroundVideo
           .play()
           .catch((error) => {
-            if (error.name === "NotAllowedError") {
-              motionPaused = true;
-              breathing.classList.remove("is-running");
-              updateMotionLabel();
-            }
+            if (error.name === "NotAllowedError") autoplayBlocked = true;
           })
           .finally(() => {
             playPending = false;
@@ -563,6 +527,15 @@
       }
     } else backgroundVideo.pause();
   }
+  // A normal page interaction can satisfy browsers that block autoplay.
+  function retryAutoplay() {
+    if (autoplayBlocked) {
+      autoplayBlocked = false;
+      updateMotion();
+    }
+  }
+  document.addEventListener("pointerdown", retryAutoplay, { passive: true });
+  document.addEventListener("keydown", retryAutoplay);
   backgroundVideo.addEventListener(
     "error",
     () => {
@@ -572,10 +545,6 @@
     },
     { once: true },
   );
-  motionButton.addEventListener("click", () => {
-    motionPaused = !motionPaused;
-    updateMotion();
-  });
   new IntersectionObserver(
     (entries) => {
       heroVisible = entries[0].isIntersecting;
@@ -592,6 +561,27 @@
   ).observe($(".hero"));
   document.addEventListener("visibilitychange", updateMotion);
   reducedMotion.addEventListener("change", updateMotion);
+
+  const header = $(".site-header");
+  const hero = $(".hero");
+  let headerFrame = 0;
+  function updateHeader() {
+    headerFrame = 0;
+    header.classList.toggle(
+      "over-hero",
+      hero.getBoundingClientRect().bottom > header.offsetHeight,
+    );
+    header.classList.toggle("is-scrolled", window.scrollY > 24);
+  }
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!headerFrame) headerFrame = requestAnimationFrame(updateHeader);
+    },
+    { passive: true },
+  );
+  window.addEventListener("resize", updateHeader);
+  updateHeader();
   const sectionObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
