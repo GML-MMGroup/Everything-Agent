@@ -11,6 +11,8 @@
 </p>
 
 <p align="center">
+  <a href="https://gml-mmgroup.github.io/Everything-Agent/">Website</a>
+  &nbsp; · &nbsp;
   <a href="https://github.com/GML-MMGroup/Everything-Agent/releases">Windows Releases</a>
   &nbsp; · &nbsp;
   <a href="https://github.com/GML-MMGroup/Everything-Agent/issues">Feedback</a>
