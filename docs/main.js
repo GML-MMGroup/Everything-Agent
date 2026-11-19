@@ -1,189 +1,314 @@
 (() => {
   "use strict";
+  const copy = {
+    en: {
+      skip: "Skip to content",
+      navManage: "Organize",
+      navSearch: "Search",
+      navCreate: "Create",
+      navDownload: "Download",
+      heroLineOne: "Your data, well organized.",
+      heroLineTwo: "Easy to find. A joy to use.",
+      intro:
+        "An agent-powered platform for managing and using your local data.",
+      download: "Download for Windows",
+      watch: "Watch demo",
+      promoTitle: "See Everything Agent in action.",
+      demoSoon: "Demo coming soon",
+      manageTitle: "A place for everything.",
+      libraryTitle: "One library. Original locations.",
+      libraryDescription:
+        "Bring images, videos, audio, and documents together with AI-powered parsing.",
+      collectionsTitle: "Organize your way.",
+      collectionsDescription:
+        "Create collections and add assets without moving the original files.",
+      stepCreate: "Create a collection",
+      stepImport: "Add assets",
+      stepBrowse: "Browse collections",
+      searchTitle: "A clue is all you need.",
+      documentTitle: "Ask your documents.",
+      documentQuery: "What is the contract amount for the GEO system?",
+      documentDescription: "Answers grounded in the content of your documents.",
+      mediaTitle: "Find the exact moment.",
+      mediaQuery:
+        "Find the segment about building China’s domestic AI computing ecosystem.",
+      mediaDescription: "Go from a remembered topic to the relevant segment.",
+      imageTitle: "Find a video from a frame.",
+      imageQuery:
+        "Find the video containing this frame and show me where it appears.",
+      imageDescription: "Use a frame as the starting point for your search.",
+      personTitle: "Find familiar faces.",
+      personQuery: "Find group photos featuring this person.",
+      personDescription: "Look for a person across the photos in your library.",
+      createTitle: "Make something of your own.",
+      canvasTitle: "Your assets. An infinite canvas.",
+      canvasDescription:
+        "Bring in your assets. Let the agent connect nodes and generate new content.",
+      workshopTitle: "Describe it. Let the agent create.",
+      workshopDescription:
+        "The agent selects the tools, configures the task, and generates your result.",
+      concept: "Concept illustration",
+      downloadTitle: "Get Everything Agent.",
+      licenseCopy:
+        "Free for personal, non-commercial use. Contact the developer for the latest version or commercial licensing.",
+      licenseLink: "Full license",
+      contactTitle: "Contact the developer",
+      wechat: "WeChat",
+      copyWechat: "Copy WeChat ID",
+      copied: "Copied",
+      copyFailed: "Select the ID to copy it manually",
+      homepage: "Homepage",
+      email: "Email",
+      fontNotice: "Typeset in HarmonyOS Sans",
+      fontLicense: "Font license",
+      close: "Close",
+      actualSize: "Actual size",
+      fitImage: "Fit to screen",
+      previewHint: "Scroll at actual size to explore the details",
+      title: "Everything Agent — Your data, well organized",
+      description:
+        "An agent-powered platform for managing and using your local data.",
+      menuOpen: "Open menu",
+      menuClose: "Close menu",
+      navigation: "Main navigation",
+      language: "Language",
+      zoom: "View original image",
+      closePreview: "Close image preview",
+      previewArea: "Image preview; use arrow keys to scroll",
+      footerNavigation: "Product links",
+      videoLabel: "Everything Agent product demo",
+      videoUnavailable: "Demo temporarily unavailable",
+      conceptAlt: "Concept illustration, not a product screenshot",
+    },
+    zh: {
+      skip: "跳到正文",
+      navManage: "数据管理",
+      navSearch: "数据检索",
+      navCreate: "创作空间",
+      navDownload: "下载 Windows 版",
+      heroLineOne: "让数据管得好，",
+      heroLineTwo: "找得到，用得爽。",
+      intro: "Agent 驱动的本地数据管理与数据应用平台。",
+      download: "下载 Windows 版",
+      watch: "观看演示",
+      promoTitle: "看看 Everything Agent 如何工作。",
+      demoSoon: "演示即将上线",
+      manageTitle: "让素材，各就其位。",
+      libraryTitle: "统一纳管，原始路径不变。",
+      libraryDescription: "图片、音视频、文档统一管理，AI 自动解析内容。",
+      collectionsTitle: "按你的方式，组织素材。",
+      collectionsDescription:
+        "新建分类、导入素材，自由组织，原始文件位置保持不变。",
+      stepCreate: "新建资产分类",
+      stepImport: "导入素材",
+      stepBrowse: "预览分类文件夹",
+      searchTitle: "从一点线索，找到所需。",
+      documentTitle: "文档细节，一问便知。",
+      documentQuery: "GEO 系统的合同金额是多少？",
+      documentDescription: "根据文档内容回答，并提供原文依据。",
+      mediaTitle: "音视频细节，精准定位。",
+      mediaQuery: "找视频里讲国产 AI 算力生态建设的画面。",
+      mediaDescription: "描述记得的内容，定位相关音视频片段。",
+      imageTitle: "一张截图，找到对应视频。",
+      imageQuery: "找到出现过这张画面的视频，并定位出现的位置。",
+      imageDescription: "用一张画面作为检索起点。",
+      personTitle: "找到这个人出现的合照。",
+      personQuery: "找出资产库里这个人出现的合照。",
+      personDescription: "从资产库的照片中查找指定人物。",
+      createTitle: "让自己的素材，成为作品。",
+      canvasTitle: "你的素材，无限创作。",
+      canvasDescription:
+        "导入私有素材，让 Agent 组织节点、自动连线并生成内容。",
+      workshopTitle: "说出想法，Agent 完成创作。",
+      workshopDescription: "Agent 自动选择生成模块、填写参数，完成生成任务。",
+      concept: "功能示意",
+      downloadTitle: "开始使用 Everything Agent。",
+      licenseCopy: "个人非商用免费。获取最新版本或申请商业授权，请联系开发者。",
+      licenseLink: "完整许可",
+      contactTitle: "联系开发者",
+      wechat: "微信",
+      copyWechat: "复制微信号",
+      copied: "已复制",
+      copyFailed: "可选中号码手动复制",
+      homepage: "个人主页",
+      email: "邮箱",
+      fontNotice: "本站使用 HarmonyOS Sans 字体",
+      fontLicense: "字体许可",
+      close: "关闭",
+      actualSize: "原始大小",
+      fitImage: "适应屏幕",
+      previewHint: "原始大小可滚动查看细节",
+      title: "Everything Agent — 让数据管得好，找得到，用得爽",
+      description: "Agent 驱动的本地数据管理与数据应用平台。",
+      menuOpen: "打开菜单",
+      menuClose: "关闭菜单",
+      navigation: "主导航",
+      language: "语言",
+      zoom: "查看清晰原图",
+      closePreview: "关闭图片预览",
+      previewArea: "图片预览，可用方向键滚动",
+      footerNavigation: "产品链接",
+      videoLabel: "Everything Agent 产品演示",
+      videoUnavailable: "演示暂时无法播放",
+      conceptAlt: "功能示意，非产品运行截图",
+    },
+  };
+
   const config = window.EVERYTHING_AGENT_CONFIG;
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => [
     ...root.querySelectorAll(selector),
   ];
+  const storageKey = "everything-agent-language-v2";
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-  const storageKey = "everything-agent-language";
-  const zh = {};
-  $$("[data-i18n]").forEach((node) => {
-    zh[node.dataset.i18n] = [...node.childNodes]
-      .map((child) =>
-        child.nodeName === "BR"
-          ? "\n"
-          : child.textContent.replace(/\s+/g, " ").trim(),
-      )
-      .join("");
-  });
-  $$("[data-i18n-aria]").forEach((node) => {
-    zh[node.dataset.i18nAria] = node.getAttribute("aria-label");
-  });
-  $$("[data-i18n-alt]").forEach((node) => {
-    zh[node.dataset.i18nAlt] = node.alt;
-  });
-  Object.assign(zh, {
-    title: "Everything Agent — AI 时代的 Everything",
-    description:
-      "Everything Agent，Agent 驱动的本地数据管理与数据应用平台。统一管理文件，用自然语言检索，用自己的素材创作。",
-    menuClose: "关闭菜单",
-    fitImage: "适应屏幕",
-    videoHint: "播放查看演示",
-    playAnimation: "播放动图",
-    pauseAnimation: "暂停动图",
-  });
-  const en = {
-    title: "Everything Agent — Everything for the AI era",
-    description:
-      "An agent-powered platform for managing and using your local data. Organize files, search by meaning, and create with your own assets.",
-    skip: "Skip to content",
-    menuOpen: "Open menu",
-    menuClose: "Close menu",
-    navigation: "Main navigation",
-    navManagement: "Organize",
-    navSearch: "Search",
-    navCreation: "Create",
-    navDownload: "Get for Windows",
-    tagline: "Everything for the AI era",
-    heroTitle: "Your data.\nWell organized.\nEasy to find.\nA joy to use.",
-    heroDescription:
-      "An agent-powered platform for managing and using your local data.",
-    download: "Download for Windows",
-    explore: "Explore the demos",
-    heroCaption: "Your assets, in one workspace",
-    imageHint: "Click to view full size",
-    managementTitle: "Bring your files together",
-    managementDescription:
-      "Bring images, videos, audio, and documents into one library, keeping their original paths. AI indexes the content. Organize by project and hover to preview.",
-    stepCreate: "Create a collection",
-    stepCreateDescription: "Make a home for each project",
-    stepImport: "Import your assets",
-    stepImportDescription: "Keep their original paths",
-    stepPreview: "Preview the collection",
-    stepPreviewDescription: "Hover to take a closer look",
-    captionManagement: "Asset library · Collections and previews",
-    altManagement:
-      "Asset library with project collections and previews of images, videos, audio, and documents",
-    zoomManagement: "Enlarge the asset library screenshot",
-    searchTitle: "Start with what\nyou remember",
-    searchDescription:
-      "No need to remember the filename. Describe the content, share an image, or ask a question about your documents.",
-    shownExample: "In this example",
-    patentQuery: "Find the patent where Ma Fei is the first inventor.",
-    captionSearch: "Search by content · The patent and the agent’s results",
-    altSearch:
-      "The agent finds a patent by inventor and opens the original patent certificate",
-    zoomSearch: "Enlarge the search screenshot",
-    examplesIntro: "You can also ask",
-    queryOrder: "Find an order screenshot with about ¥30 paid.",
-    queryAudio: "Find the sentence mentioning Haidilao in the recording.",
-    queryVideo: "Which video is this screenshot from, and at what point?",
-    queryPerson: "Find group photos with this person.",
-    querySimilar: "Find images similar to this product photo.",
-    queryContract: "What is the contract amount for the GEO system?",
-    creationTitle: "Create with\nyour own assets",
-    creationDescription:
-      "Keep going once you find the right material. Start with your assets, then organize, generate, and refine through conversation.",
-    captionCreation:
-      "Infinite Canvas · Assets, connected nodes, and conversation",
-    altCreation:
-      "Infinite Canvas with product and person images imported from the library and connected as nodes",
-    zoomCreation: "Enlarge the Infinite Canvas screenshot",
-    canvasTitle: "Infinite Canvas",
-    canvasDescription:
-      "Import assets from your library. Use conversation to organize nodes, connect materials, and generate content.",
-    workshopTitle: "Generation Workshop",
-    workshopDescription:
-      "Describe what you need. The agent selects tools, fills in parameters, and generates images, video, or audio.",
-    creationFlow: "Creation workflow",
-    flowLibrary: "Asset library",
-    flowWorkspace: "Creation space",
-    flowResult: "Generated work",
-    downloadTitle: "Your next idea\nstarts with your data.",
-    releaseNotes: "View release notes",
-    licenseCopy:
-      "Free for personal, non-commercial use. Commercial use requires prior written authorization.",
-    footerNavigation: "Footer links",
-    release: "Releases",
-    license: "License",
-    actualSize: "Actual size",
-    fitImage: "Fit to screen",
-    closePreview: "Close preview",
-    previewArea: "Image preview; use arrow keys to scroll",
-    previewHint: "Scroll at actual size to explore the details",
-    close: "Close",
-    videoHint: "Play to explore the demo",
-    playAnimation: "Play animation",
-    pauseAnimation: "Pause animation",
-  };
-  const copy = { zh, en };
-  let language = "zh";
+  const mediaById = new Map(config.images.map((item) => [item.id, item]));
+  let language = "en";
   try {
-    if (localStorage.getItem(storageKey) === "en") language = "en";
+    const preference = localStorage.getItem(storageKey);
+    if (preference === "en" || preference === "zh") language = preference;
   } catch {
-    /* Storage can be blocked in private contexts. */
+    /* The page works when storage is unavailable. */
   }
-  const t = (key) => copy[language][key] || zh[key] || key;
-  const mediaKey = (prefix, key) =>
-    prefix + key[0].toUpperCase() + key.slice(1);
-  const mediaText = (key, property) =>
-    config.media[key]?.[property]?.[language] || t(mediaKey(property, key));
-  const languageButton = $(".language-toggle");
-  const menuButton = $(".menu-toggle");
+  const t = (key) => copy[language][key] || copy.en[key] || key;
   const navigation = $("#site-nav");
+  const menuButton = $(".menu-toggle");
   const dialog = $(".lightbox");
   const viewport = $(".lightbox-viewport");
   const previewImage = $(".lightbox-image");
-  let previewKey = null;
+  let previewItem = null;
   let previewTrigger = null;
-
+  let copyState = "";
+  let copyTimer;
+  let videoState = "demoSoon";
   const links = {
+    download: config.downloadUrl,
     repository: config.repository,
-    download:
-      config.downloadUrl ||
-      `${config.repository}/releases/download/${config.version}/${config.installer}`,
-    release: `${config.repository}/releases/tag/${config.version}`,
     license: `${config.repository}/blob/main/LICENSE.txt`,
+    homepage: config.homepage,
     email: `mailto:${config.email}`,
   };
   $$("[data-link]").forEach((link) => {
     link.href = links[link.dataset.link];
-    if (link.dataset.link === "email") link.textContent = config.email;
   });
-  $$("[data-version]").forEach((node) => {
-    node.textContent = config.version;
-  });
+  $("#wechat-id").textContent = config.wechat;
 
-  function updateMediaLabels() {
-    $$("[data-media]").forEach((container) => {
-      const key = container.dataset.media;
-      const figure = container.closest("figure");
-      $("figcaption > span", figure).textContent = mediaText(key, "caption");
-      const image = $("img", container);
-      if (image) image.alt = mediaText(key, "alt");
-      const link = $("[data-lightbox]", container);
-      if (link) link.setAttribute("aria-label", t(mediaKey("zoom", key)));
-      const video = $("video", container);
-      if (video) video.setAttribute("aria-label", mediaText(key, "caption"));
-      $(".media-hint", figure).textContent = t(
-        video ? "videoHint" : "imageHint",
-      );
-      const animationButton = $(".animation-toggle", container);
-      if (animationButton)
-        animationButton.textContent = t(
-          animationButton.getAttribute("aria-pressed") === "true"
-            ? "pauseAnimation"
-            : "playAnimation",
-        );
-    });
-    if (previewKey) {
-      $("#lightbox-caption").textContent = mediaText(previewKey, "caption");
-      previewImage.alt = mediaText(previewKey, "alt");
-    }
+  function placeholder(item) {
+    const block = document.createElement("div");
+    block.className = "visual-placeholder";
+    block.setAttribute("role", "img");
+    block.setAttribute(
+      "aria-label",
+      `${t("conceptAlt")}: ${item.alt[language]}`,
+    );
+    const kind = item.id.startsWith("search-") ? item.id.slice(7) : "document";
+    block.innerHTML = `<svg class="concept-art" viewBox="0 0 480 260" aria-hidden="true"><use href="#concept-${kind}"/></svg><span class="concept-label"></span>`;
+    $(".concept-label", block).textContent = t("concept");
+    return block;
   }
 
-  function applyLanguage() {
+  function renderImage(container) {
+    const item = mediaById.get(container.dataset.imageSlot);
+    const usePerspective =
+      item.usePerspective && item.perspectiveReady && item.perspective;
+    const displayPath = usePerspective
+      ? item.perspective
+      : item.ready
+        ? item.src
+        : null;
+    if (!displayPath) {
+      container.replaceChildren(placeholder(item));
+      return;
+    }
+    container.classList.toggle(
+      "has-baked-perspective",
+      Boolean(usePerspective),
+    );
+    let image = $("img", container);
+    // Reuse the server-rendered image to preserve its preload and avoid duplicate requests.
+    if (!image || image.getAttribute("src") !== displayPath) {
+      const wrapper = document.createElement(item.originalReady ? "a" : "div");
+      wrapper.className = item.originalReady ? "image-link" : "image-display";
+      if (item.originalReady) {
+        wrapper.href = item.original;
+        wrapper.dataset.lightbox = item.id;
+        wrapper.setAttribute("aria-label", t("zoom"));
+      }
+      image = document.createElement("img");
+      image.width = item.width;
+      image.height = item.height;
+      image.loading = item.id === "hero" ? "eager" : "lazy";
+      if (item.id === "hero") image.fetchPriority = "high";
+      image.src = displayPath;
+      wrapper.append(image);
+      container.replaceChildren(wrapper);
+    }
+    image.alt = item.alt[language];
+    const fallback = () => {
+      // One recovery attempt only. Unready paths are never requested.
+      if (
+        usePerspective &&
+        item.ready &&
+        image.getAttribute("src") !== item.src
+      ) {
+        container.classList.remove("has-baked-perspective");
+        image.addEventListener(
+          "error",
+          () => container.replaceChildren(placeholder(item)),
+          { once: true },
+        );
+        image.src = item.src;
+      } else container.replaceChildren(placeholder(item));
+    };
+    image.addEventListener("error", fallback, { once: true });
+    if (image.complete && image.naturalWidth === 0) fallback();
+  }
+  $$("[data-image-slot]").forEach(renderImage);
+
+  const promo = $("[data-video-slot]");
+  function showVideoPending(state = "demoSoon") {
+    videoState = state;
+    const block = document.createElement("div");
+    block.className = "promo-pending";
+    if (config.video.posterReady) {
+      const image = document.createElement("img");
+      image.src = config.video.poster;
+      image.alt = "";
+      image.loading = "lazy";
+      image.addEventListener("error", () => image.remove(), { once: true });
+      block.append(image);
+    }
+    const message = document.createElement("p");
+    message.textContent = t(state);
+    message.setAttribute("role", "status");
+    block.append(message);
+    promo.replaceChildren(block);
+  }
+  if (config.video.ready && config.video.src) {
+    const video = document.createElement("video");
+    video.src = config.video.src;
+    video.poster = config.video.posterReady
+      ? config.video.poster
+      : mediaById.get("hero").src;
+    video.controls = true;
+    video.playsInline = true;
+    video.preload = "none";
+    video.width = config.video.width;
+    video.height = config.video.height;
+    (config.video.tracks || []).forEach((item) => {
+      const track = document.createElement("track");
+      Object.assign(track, { kind: "captions", ...item });
+      video.append(track);
+    });
+    video.setAttribute("aria-label", t("videoLabel"));
+    video.addEventListener(
+      "error",
+      () => showVideoPending("videoUnavailable"),
+      { once: true },
+    );
+    promo.replaceChildren(video);
+  } else showVideoPending();
+
+  function updateLanguage() {
     document.documentElement.lang = language === "zh" ? "zh-CN" : "en";
     document.title = t("title");
     $('meta[name="description"]').content = t("description");
@@ -192,37 +317,61 @@
     $$("[data-i18n]").forEach((node) => {
       node.textContent = t(node.dataset.i18n);
     });
-    $$("[data-i18n-aria]").forEach((node) => {
-      node.setAttribute("aria-label", t(node.dataset.i18nAria));
-    });
-    $$("[data-i18n-alt]").forEach((node) => {
-      node.alt = t(node.dataset.i18nAlt);
-    });
-    languageButton.textContent = language === "zh" ? "English" : "中文";
-    languageButton.lang = language === "zh" ? "en" : "zh-CN";
-    languageButton.setAttribute(
-      "aria-label",
-      language === "zh" ? "Switch to English" : "切换到中文",
+    $$("[data-language]").forEach((button) =>
+      button.setAttribute(
+        "aria-pressed",
+        String(button.dataset.language === language),
+      ),
     );
+    $(".language-switch").setAttribute("aria-label", t("language"));
+    navigation.setAttribute("aria-label", t("navigation"));
     menuButton.setAttribute(
       "aria-label",
       t(navigation.classList.contains("is-open") ? "menuClose" : "menuOpen"),
     );
+    $$("[data-image-slot]").forEach((container) => {
+      const item = mediaById.get(container.dataset.imageSlot);
+      const image = $("img", container);
+      if (image) image.alt = item.alt[language];
+      const link = $("[data-lightbox]", container);
+      if (link)
+        link.setAttribute("aria-label", `${t("zoom")}: ${item.alt[language]}`);
+      const concept = $(".visual-placeholder", container);
+      if (concept) {
+        concept.setAttribute(
+          "aria-label",
+          `${t("conceptAlt")}: ${item.alt[language]}`,
+        );
+        $(".concept-label", concept).textContent = t("concept");
+      }
+    });
+    const pending = $(".promo-pending p");
+    if (pending) pending.textContent = t(videoState);
+    const video = $("video", promo);
+    if (video) video.setAttribute("aria-label", t("videoLabel"));
+    $(".copy-wechat").setAttribute("aria-label", t("copyWechat"));
+    $(".copy-feedback").textContent = copyState ? t(copyState) : "";
+    $(".footer-meta nav").setAttribute("aria-label", t("footerNavigation"));
+    $(".lightbox-close").setAttribute("aria-label", t("closePreview"));
+    viewport.setAttribute("aria-label", t("previewArea"));
     $(".lightbox-zoom").textContent = t(
       viewport.classList.contains("is-zoomed") ? "fitImage" : "actualSize",
     );
-    updateMediaLabels();
-  }
-
-  languageButton.addEventListener("click", () => {
-    language = language === "zh" ? "en" : "zh";
-    try {
-      localStorage.setItem(storageKey, language);
-    } catch {
-      /* Switching still works without persistence. */
+    if (previewItem) {
+      $("#lightbox-caption").textContent = previewItem.alt[language];
+      previewImage.alt = previewItem.alt[language];
     }
-    applyLanguage();
-  });
+  }
+  $$("[data-language]").forEach((button) =>
+    button.addEventListener("click", () => {
+      language = button.dataset.language;
+      // Persist only an explicit choice, never the first-visit default.
+      try {
+        localStorage.setItem(storageKey, language);
+      } catch {}
+      updateLanguage();
+    }),
+  );
 
   function setMenu(open, restoreFocus = false) {
     navigation.classList.toggle("is-open", open);
@@ -232,7 +381,7 @@
     if (restoreFocus) menuButton.focus();
   }
   menuButton.addEventListener("click", () =>
-    setMenu(menuButton.getAttribute("aria-expanded") !== "true"),
+    setMenu(!navigation.classList.contains("is-open")),
   );
   $$("a", navigation).forEach((link) =>
     link.addEventListener("click", () => setMenu(false)),
@@ -245,94 +394,10 @@
       setMenu(false, true);
   });
   window
-    .matchMedia("(min-width: 1024px)")
+    .matchMedia("(min-width:1024px)")
     .addEventListener("change", (event) => {
       if (event.matches) setMenu(false);
     });
-
-  function makeImage(key, src) {
-    const item = config.media[key];
-    const link = document.createElement("a");
-    link.className = "screenshot-link media-enter";
-    link.dataset.lightbox = key;
-    link.href = src;
-    const image = document.createElement("img");
-    image.src = src;
-    image.width = item.width || 1920;
-    image.height = item.height || 1032;
-    image.loading = "lazy";
-    image.alt = mediaText(key, "alt");
-    image.addEventListener("error", () => {
-      if (image.getAttribute("src") !== item.fallback) {
-        image.src = item.fallback;
-        link.href = item.fallback;
-      }
-    });
-    const expand = document.createElement("span");
-    expand.className = "expand-mark";
-    expand.setAttribute("aria-hidden", "true");
-    expand.innerHTML = '<svg class="icon"><use href="#i-expand"/></svg>';
-    link.append(image, expand);
-    return link;
-  }
-
-  $$("[data-media]").forEach((container) => {
-    const key = container.dataset.media;
-    const item = config.media[key];
-    const showFallback = () => {
-      container.replaceChildren(makeImage(key, item.fallback));
-      updateMediaLabels();
-    };
-    if (item.type === "video") {
-      const video = document.createElement("video");
-      video.controls = true;
-      video.playsInline = true;
-      video.preload = "none";
-      video.poster = item.poster || item.fallback;
-      video.width = item.width || 1920;
-      video.height = item.height || 1032;
-      video.src = item.src;
-      video.className = "media-enter";
-      (item.tracks || []).forEach((trackConfig) => {
-        const track = document.createElement("track");
-        Object.assign(track, { kind: "captions", ...trackConfig });
-        video.append(track);
-      });
-      video.addEventListener("error", showFallback, { once: true });
-      container.replaceChildren(video);
-    } else if (item.type === "gif") {
-      const still = makeImage(key, item.poster || item.fallback);
-      const toggle = document.createElement("button");
-      toggle.className = "animation-toggle";
-      toggle.type = "button";
-      toggle.setAttribute("aria-pressed", "false");
-      const stop = () => {
-        $("img", still).src = item.poster || item.fallback;
-        still.href = item.poster || item.fallback;
-        toggle.setAttribute("aria-pressed", "false");
-        updateMediaLabels();
-      };
-      toggle.addEventListener("click", () => {
-        if (toggle.getAttribute("aria-pressed") === "true") return stop();
-        $("img", still).src = item.src;
-        // The enlarged view stays still so pause/reduced-motion remain effective.
-        toggle.setAttribute("aria-pressed", "true");
-        updateMediaLabels();
-      });
-      $("img", still).addEventListener("error", showFallback, { once: true });
-      reducedMotion.addEventListener("change", (event) => {
-        if (event.matches) stop();
-      });
-      container.replaceChildren(still, toggle);
-    } else {
-      container.replaceChildren(makeImage(key, item.src || item.fallback));
-    }
-  });
-
-  // The hero always remains a still product preview, even when demos become video.
-  const heroLink = $(".hero-preview [data-lightbox]");
-  heroLink.href = config.media.management.fallback;
-  $("img", heroLink).src = config.media.management.fallback;
 
   document.addEventListener("click", (event) => {
     const trigger = event.target.closest("[data-lightbox]");
@@ -344,16 +409,18 @@
       event.altKey
     )
       return;
+    const item = mediaById.get(trigger.dataset.lightbox);
+    if (!item?.originalReady) return;
     event.preventDefault();
     previewTrigger = trigger;
-    previewKey = trigger.dataset.lightbox;
-    previewImage.src = trigger.href;
+    previewItem = item;
+    previewImage.src = item.original;
     viewport.classList.remove("is-zoomed");
-    $(".lightbox-zoom").textContent = t("actualSize");
-    updateMediaLabels();
+    updateLanguage();
     dialog.showModal();
     document.body.classList.add("modal-open");
   });
+  previewImage.addEventListener("error", () => dialog.close());
   $(".lightbox-close").addEventListener("click", () => dialog.close());
   dialog.addEventListener("click", (event) => {
     const bounds = dialog.getBoundingClientRect();
@@ -368,7 +435,7 @@
   });
   dialog.addEventListener("close", () => {
     document.body.classList.remove("modal-open");
-    previewKey = null;
+    previewItem = null;
     previewTrigger?.focus({ preventScroll: true });
   });
   $(".lightbox-zoom").addEventListener("click", () => {
@@ -378,21 +445,65 @@
     viewport.focus();
   });
 
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          $$("[data-section-link]").forEach((link) => {
-            if (link.dataset.sectionLink === entry.target.id)
-              link.setAttribute("aria-current", "location");
-            else link.removeAttribute("aria-current");
-          });
-        });
-      },
-      { rootMargin: "-15% 0px -55% 0px" },
+  $(".copy-wechat").addEventListener("click", async () => {
+    clearTimeout(copyTimer);
+    try {
+      await navigator.clipboard.writeText(config.wechat);
+      copyState = "copied";
+    } catch {
+      copyState = "copyFailed";
+      const range = document.createRange();
+      range.selectNodeContents($("#wechat-id"));
+      const selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      $("#wechat-id").focus({ preventScroll: true });
+    }
+    $(".copy-feedback").textContent = t(copyState);
+    if (copyState === "copied")
+      copyTimer = setTimeout(() => {
+        copyState = "";
+        $(".copy-feedback").textContent = "";
+      }, 3500);
+  });
+
+  // Independent wrappers keep perspective and continuous motion from overwriting each other.
+  const breathing = $(".hero-breathe");
+  let heroVisible = false;
+  function updateMotion() {
+    breathing.classList.toggle(
+      "is-running",
+      heroVisible && !document.hidden && !reducedMotion.matches,
     );
-    $$(".feature").forEach((section) => observer.observe(section));
   }
-  applyLanguage();
+  const heroObserver = new IntersectionObserver(
+    (entries) => {
+      heroVisible = entries[0].isIntersecting;
+      updateMotion();
+    },
+    { threshold: 0.05 },
+  );
+  heroObserver.observe($(".hero-perspective"));
+  document.addEventListener("visibilitychange", updateMotion);
+  reducedMotion.addEventListener("change", updateMotion);
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          $(`[data-section-link="${entry.target.id}"]`)?.removeAttribute(
+            "aria-current",
+          );
+          return;
+        }
+        $$("[data-section-link]").forEach((link) => {
+          if (link.dataset.sectionLink === entry.target.id)
+            link.setAttribute("aria-current", "location");
+          else link.removeAttribute("aria-current");
+        });
+      });
+    },
+    { rootMargin: "-15% 0px -55% 0px" },
+  );
+  $$(".feature-section").forEach((section) => sectionObserver.observe(section));
+  updateLanguage();
 })();
