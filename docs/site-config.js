@@ -8,6 +8,14 @@ window.EVERYTHING_AGENT_CONFIG = {
   homepage: "https://feima09.github.io/",
   email: "xuhongbo@gml.ac.cn",
   wechat: "bebe_12138",
+  background: {
+    src: "assets/media/motionsites-background-d38a1a89.mp4",
+    poster: "assets/media/hero-background-poster.jpg",
+  },
+  avatar: {
+    src: "assets/media/developer-avatar.svg",
+    alt: { en: "Developer avatar placeholder", zh: "开发者头像占位图" },
+  },
   images: [
     {
       id: "hero",

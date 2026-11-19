@@ -45,9 +45,9 @@
       type="font/ttf"
       crossorigin
     />
-    <link rel="stylesheet" href="styles.css?v=20261119-2" />
-    <script src="site-config.js?v=20261119-2" defer></script>
-    <script src="main.js?v=20261119-2" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20261119-3" />
+    <script src="site-config.js?v=20261119-3" defer></script>
+    <script src="main.js?v=20261119-3" defer></script>
   </head>
   <body>
     <svg
@@ -65,6 +65,9 @@
       </symbol>
       <symbol id="i-play" viewBox="0 0 24 24">
         <path d="m9 5 11 7-11 7Z" />
+      </symbol>
+      <symbol id="i-pause" viewBox="0 0 24 24">
+        <path d="M8 5v14M16 5v14" />
       </symbol>
       <symbol id="i-close" viewBox="0 0 24 24">
         <path d="m18 6-12 12M6 6l12 12" />
@@ -156,16 +159,18 @@
               data-language="en"
               lang="en"
               aria-pressed="true"
+              aria-label="English"
             >
-              English</button
+              En</button
             ><span aria-hidden="true">/</span
             ><button
               type="button"
               data-language="zh"
               lang="zh-CN"
               aria-pressed="false"
+              aria-label="中文"
             >
-              中文
+              Zh
             </button>
           </div>
           <a
@@ -178,309 +183,356 @@
       </div>
     </header>
     <main id="main">
-      <section class="hero container" id="top" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <h1 id="hero-title">
-            <span data-i18n="heroLineOne" class="hero-line"
-              >Your data, well organized.</span
-            ><span data-i18n="heroLineTwo" class="hero-line brand-gradient"
-              >Easy to find. A joy to use.</span
-            >
-          </h1>
-          <p data-i18n="intro" class="hero-description">
-            An agent-powered platform for managing and using your local data.
-          </p>
-          <div class="hero-actions">
-            <a
-              class="button button-primary"
-              data-link="download"
-              href="https://github.com/GML-MMGroup/Everything-Agent/releases/latest"
-              ><svg class="icon" aria-hidden="true">
-                <use href="#i-download" /></svg
-              ><span data-i18n="download">Download for Windows</span></a
-            ><a class="button button-secondary" href="#promo"
-              ><svg class="icon" aria-hidden="true"><use href="#i-play" /></svg
-              ><span data-i18n="watch">Watch demo</span></a
-            >
-          </div>
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-background" aria-hidden="true">
+          <video
+            class="hero-background-video"
+            muted
+            loop
+            playsinline
+            preload="none"
+            poster="assets/media/hero-background-poster.jpg"
+            tabindex="-1"
+            disablepictureinpicture
+          ></video>
         </div>
-        <div class="hero-perspective">
-          <div class="hero-breathe">
-            <figure class="media-slot" data-image-slot="hero">
+        <div class="container hero-content">
+          <div class="hero-copy">
+            <h1 id="hero-title">
+              <span data-i18n="heroLineOne" class="hero-line"
+                >Your data, well organized.</span
+              ><span data-i18n="heroLineTwo" class="hero-line brand-gradient"
+                >Easy to find. A joy to use.</span
+              >
+            </h1>
+            <p data-i18n="intro" class="hero-description">
+              An agent-powered platform for managing and using your local data.
+            </p>
+            <div class="hero-actions">
               <a
-                class="image-link"
-                data-lightbox="hero"
-                href="assets/media/hero.png"
-                aria-label="View original image"
-                ><img
-                  src="assets/media/hero.png"
-                  width="1920"
-                  height="1032"
-                  alt="Everything Agent asset library with collections and previews of local files"
-                  fetchpriority="high"
-              /></a>
-            </figure>
+                class="button button-primary"
+                data-link="download"
+                href="https://github.com/GML-MMGroup/Everything-Agent/releases/latest"
+                ><svg class="icon" aria-hidden="true">
+                  <use href="#i-download" /></svg
+                ><span data-i18n="download">Download for Windows</span></a
+              ><a class="button button-secondary" href="#promo"
+                ><svg class="icon" aria-hidden="true">
+                  <use href="#i-play" /></svg
+                ><span data-i18n="watch">Watch demo</span></a
+              >
+            </div>
+          </div>
+          <div class="hero-perspective">
+            <div class="hero-breathe">
+              <figure class="media-slot" data-image-slot="hero">
+                <a
+                  class="image-link"
+                  data-lightbox="hero"
+                  href="assets/media/hero.png"
+                  aria-label="View original image"
+                  ><img
+                    src="assets/media/hero.png"
+                    width="1920"
+                    height="1032"
+                    alt="Everything Agent asset library with collections and previews of local files"
+                    fetchpriority="high"
+                /></a>
+              </figure>
+            </div>
           </div>
         </div>
-      </section>
-      <section
-        class="promo-section container"
-        id="promo"
-        aria-labelledby="promo-title"
-      >
-        <h2 data-i18n="promoTitle">See Everything Agent in action.</h2>
-        <div class="promo-frame" data-video-slot="promo">
-          <div class="promo-pending">
-            <p data-i18n="demoSoon">Demo coming soon</p>
-          </div>
-        </div>
-      </section>
-      <section
-        class="feature-section container"
-        id="management"
-        aria-labelledby="management-title"
-      >
-        <h2
-          class="section-heading"
-          id="management-title"
-          data-i18n="manageTitle"
+        <button
+          class="motion-toggle icon-button"
+          type="button"
+          aria-label="Pause animation"
+          hidden
         >
-          A place for everything.
-        </h2>
-        <article class="case-row">
-          <div class="case-copy">
-            <h3 data-i18n="libraryTitle">One library. Original locations.</h3>
-            <p data-i18n="libraryDescription" class="case-description">
-              Bring images, videos, audio, and documents together with
-              AI-powered parsing.
-            </p>
-          </div>
-          <figure class="media-slot" data-image-slot="manage-library">
-            <a
-              class="image-link"
-              data-lightbox="manage-library"
-              href="assets/media/hero.png"
-              aria-label="View original image"
-              ><img
-                src="assets/media/manage-library.png"
-                width="1644"
-                height="840"
-                alt="Images, videos, audio, and documents together in the asset library"
-                loading="lazy"
-            /></a>
-          </figure>
-        </article>
-        <article class="case-row reverse">
-          <div class="case-copy">
-            <h3 data-i18n="collectionsTitle">Organize your way.</h3>
-            <p data-i18n="collectionsDescription" class="case-description">
-              Create collections and add assets without moving the original
-              files.
-            </p>
-            <ol class="collection-steps">
-              <li data-i18n="stepCreate">Create a collection</li>
-              <li data-i18n="stepImport">Add assets</li>
-              <li data-i18n="stepBrowse">Browse collections</li>
-            </ol>
-          </div>
-          <figure
-            class="media-slot tilt-subtle"
-            data-image-slot="manage-collections"
-          >
-            <a
-              class="image-link"
-              data-lightbox="manage-collections"
-              href="assets/media/hero.png"
-              aria-label="View original image"
-              ><img
-                src="assets/media/manage-collections.png"
-                width="1644"
-                height="564"
-                alt="Collection folders with New collection and Add assets controls"
-                loading="lazy"
-            /></a>
-          </figure>
-        </article>
+          <svg class="icon" aria-hidden="true"><use href="#i-pause" /></svg>
+        </button>
       </section>
-      <section
-        class="feature-section search-section"
-        id="search"
-        aria-labelledby="search-title"
-      >
-        <div class="container">
-          <h2 class="section-heading" id="search-title" data-i18n="searchTitle">
-            A clue is all you need.
+      <div class="feature-stage">
+        <div class="pipo-background" aria-hidden="true">
+          <svg class="pipo-grain" xmlns="http://www.w3.org/2000/svg">
+            <filter id="pipo-grain">
+              <feTurbulence
+                type="fractalNoise"
+                baseFrequency="0.8"
+                numOctaves="2"
+                stitchTiles="stitch"
+              />
+              <feColorMatrix type="saturate" values="0" />
+            </filter>
+            <rect width="100%" height="100%" filter="url(#pipo-grain)" />
+          </svg>
+        </div>
+        <section
+          class="promo-section container"
+          id="promo"
+          aria-labelledby="promo-title"
+        >
+          <h2 data-i18n="promoTitle">See Everything Agent in action.</h2>
+          <div class="promo-frame" data-video-slot="promo">
+            <div class="promo-pending">
+              <p data-i18n="demoSoon">Demo coming soon</p>
+            </div>
+          </div>
+        </section>
+        <section
+          class="feature-section container"
+          id="management"
+          aria-labelledby="management-title"
+        >
+          <h2
+            class="section-heading"
+            id="management-title"
+            data-i18n="manageTitle"
+          >
+            A place for everything.
           </h2>
           <article class="case-row">
             <div class="case-copy">
-              <h3 data-i18n="documentTitle">Ask your documents.</h3>
-              <p data-i18n="documentDescription" class="case-description">
-                Answers grounded in the content of your documents.
+              <h3 data-i18n="libraryTitle">One library. Original locations.</h3>
+              <p data-i18n="libraryDescription" class="case-description">
+                Bring images, videos, audio, and documents together with
+                AI-powered parsing.
               </p>
-              <blockquote data-i18n="documentQuery" class="query">
-                What is the contract amount for the GEO system?
-              </blockquote>
             </div>
-            <figure class="media-slot" data-image-slot="search-document">
-              <div
-                class="visual-placeholder"
-                role="img"
-                aria-label="Concept illustration, not a product screenshot"
-              >
-                <svg
-                  class="concept-art"
-                  viewBox="0 0 480 260"
-                  aria-hidden="true"
-                >
-                  <use href="#concept-document" /></svg
-                ><span data-i18n="concept" class="concept-label"
-                  >Concept illustration</span
-                >
-              </div>
+            <figure class="media-slot" data-image-slot="manage-library">
+              <a
+                class="image-link"
+                data-lightbox="manage-library"
+                href="assets/media/hero.png"
+                aria-label="View original image"
+                ><img
+                  src="assets/media/manage-library.png"
+                  width="1644"
+                  height="840"
+                  alt="Images, videos, audio, and documents together in the asset library"
+                  loading="lazy"
+              /></a>
             </figure>
           </article>
           <article class="case-row reverse">
             <div class="case-copy">
-              <h3 data-i18n="mediaTitle">Find the exact moment.</h3>
-              <p data-i18n="mediaDescription" class="case-description">
-                Go from a remembered topic to the relevant segment.
+              <h3 data-i18n="collectionsTitle">Organize your way.</h3>
+              <p data-i18n="collectionsDescription" class="case-description">
+                Create collections and add assets without moving the original
+                files.
               </p>
-              <blockquote data-i18n="mediaQuery" class="query">
-                Find the segment about building China’s domestic AI computing
-                ecosystem.
-              </blockquote>
+              <ol class="collection-steps">
+                <li data-i18n="stepCreate">Create a collection</li>
+                <li data-i18n="stepImport">Add assets</li>
+                <li data-i18n="stepBrowse">Browse collections</li>
+              </ol>
             </div>
-            <figure class="media-slot" data-image-slot="search-media">
-              <div
-                class="visual-placeholder"
-                role="img"
-                aria-label="Concept illustration, not a product screenshot"
-              >
-                <svg
-                  class="concept-art"
-                  viewBox="0 0 480 260"
-                  aria-hidden="true"
-                >
-                  <use href="#concept-media" /></svg
-                ><span data-i18n="concept" class="concept-label"
-                  >Concept illustration</span
-                >
-              </div>
+            <figure
+              class="media-slot tilt-subtle"
+              data-image-slot="manage-collections"
+            >
+              <a
+                class="image-link"
+                data-lightbox="manage-collections"
+                href="assets/media/hero.png"
+                aria-label="View original image"
+                ><img
+                  src="assets/media/manage-collections.png"
+                  width="1644"
+                  height="564"
+                  alt="Collection folders with New collection and Add assets controls"
+                  loading="lazy"
+              /></a>
             </figure>
           </article>
-          <article class="case-row case-wide">
-            <div class="case-copy">
-              <h3 data-i18n="imageTitle">Find a video from a frame.</h3>
-              <p data-i18n="imageDescription" class="case-description">
-                Use a frame as the starting point for your search.
-              </p>
-              <blockquote data-i18n="imageQuery" class="query">
-                Find the video containing this frame and show me where it
-                appears.
-              </blockquote>
-            </div>
-            <figure class="media-slot" data-image-slot="search-image">
-              <div
-                class="visual-placeholder"
-                role="img"
-                aria-label="Concept illustration, not a product screenshot"
-              >
-                <svg
-                  class="concept-art"
-                  viewBox="0 0 480 260"
-                  aria-hidden="true"
-                >
-                  <use href="#concept-image" /></svg
-                ><span data-i18n="concept" class="concept-label"
-                  >Concept illustration</span
-                >
+        </section>
+        <section
+          class="feature-section search-section"
+          id="search"
+          aria-labelledby="search-title"
+        >
+          <div class="container">
+            <h2
+              class="section-heading"
+              id="search-title"
+              data-i18n="searchTitle"
+            >
+              A clue is all you need.
+            </h2>
+            <article class="case-row">
+              <div class="case-copy">
+                <h3 data-i18n="documentTitle">Ask your documents.</h3>
+                <p data-i18n="documentDescription" class="case-description">
+                  Answers grounded in the content of your documents.
+                </p>
+                <blockquote data-i18n="documentQuery" class="query">
+                  What is the contract amount for the GEO system?
+                </blockquote>
               </div>
+              <figure class="media-slot" data-image-slot="search-document">
+                <div
+                  class="visual-placeholder"
+                  role="img"
+                  aria-label="Concept illustration, not a product screenshot"
+                >
+                  <svg
+                    class="concept-art"
+                    viewBox="0 0 480 260"
+                    aria-hidden="true"
+                  >
+                    <use href="#concept-document" /></svg
+                  ><span data-i18n="concept" class="concept-label"
+                    >Concept illustration</span
+                  >
+                </div>
+              </figure>
+            </article>
+            <article class="case-row reverse">
+              <div class="case-copy">
+                <h3 data-i18n="mediaTitle">Find the exact moment.</h3>
+                <p data-i18n="mediaDescription" class="case-description">
+                  Go from a remembered topic to the relevant segment.
+                </p>
+                <blockquote data-i18n="mediaQuery" class="query">
+                  Find the segment about building China’s domestic AI computing
+                  ecosystem.
+                </blockquote>
+              </div>
+              <figure class="media-slot" data-image-slot="search-media">
+                <div
+                  class="visual-placeholder"
+                  role="img"
+                  aria-label="Concept illustration, not a product screenshot"
+                >
+                  <svg
+                    class="concept-art"
+                    viewBox="0 0 480 260"
+                    aria-hidden="true"
+                  >
+                    <use href="#concept-media" /></svg
+                  ><span data-i18n="concept" class="concept-label"
+                    >Concept illustration</span
+                  >
+                </div>
+              </figure>
+            </article>
+            <article class="case-row case-wide">
+              <div class="case-copy">
+                <h3 data-i18n="imageTitle">Find a video from a frame.</h3>
+                <p data-i18n="imageDescription" class="case-description">
+                  Use a frame as the starting point for your search.
+                </p>
+                <blockquote data-i18n="imageQuery" class="query">
+                  Find the video containing this frame and show me where it
+                  appears.
+                </blockquote>
+              </div>
+              <figure class="media-slot" data-image-slot="search-image">
+                <div
+                  class="visual-placeholder"
+                  role="img"
+                  aria-label="Concept illustration, not a product screenshot"
+                >
+                  <svg
+                    class="concept-art"
+                    viewBox="0 0 480 260"
+                    aria-hidden="true"
+                  >
+                    <use href="#concept-image" /></svg
+                  ><span data-i18n="concept" class="concept-label"
+                    >Concept illustration</span
+                  >
+                </div>
+              </figure>
+            </article>
+            <article class="case-row reverse">
+              <div class="case-copy">
+                <h3 data-i18n="personTitle">Find familiar faces.</h3>
+                <p data-i18n="personDescription" class="case-description">
+                  Look for a person across the photos in your library.
+                </p>
+                <blockquote data-i18n="personQuery" class="query">
+                  Find group photos featuring this person.
+                </blockquote>
+              </div>
+              <figure class="media-slot" data-image-slot="search-person">
+                <div
+                  class="visual-placeholder"
+                  role="img"
+                  aria-label="Concept illustration, not a product screenshot"
+                >
+                  <svg
+                    class="concept-art"
+                    viewBox="0 0 480 260"
+                    aria-hidden="true"
+                  >
+                    <use href="#concept-person" /></svg
+                  ><span data-i18n="concept" class="concept-label"
+                    >Concept illustration</span
+                  >
+                </div>
+              </figure>
+            </article>
+          </div>
+        </section>
+        <section
+          class="feature-section container"
+          id="creation"
+          aria-labelledby="creation-title"
+        >
+          <h2
+            class="section-heading"
+            id="creation-title"
+            data-i18n="createTitle"
+          >
+            Make something of your own.
+          </h2>
+          <article class="case-row">
+            <div class="case-copy">
+              <h3 data-i18n="canvasTitle">Your assets. An infinite canvas.</h3>
+              <p data-i18n="canvasDescription" class="case-description">
+                Bring in your assets. Let the agent connect nodes and generate
+                new content.
+              </p>
+            </div>
+            <figure class="media-slot" data-image-slot="create-canvas">
+              <a
+                class="image-link"
+                data-lightbox="create-canvas"
+                href="assets/media/create-canvas.png"
+                aria-label="View original image"
+                ><img
+                  src="assets/media/create-canvas.png"
+                  width="1920"
+                  height="1032"
+                  alt="Product and portrait assets connected as nodes on Infinite Canvas"
+                  loading="lazy"
+              /></a>
             </figure>
           </article>
           <article class="case-row reverse">
             <div class="case-copy">
-              <h3 data-i18n="personTitle">Find familiar faces.</h3>
-              <p data-i18n="personDescription" class="case-description">
-                Look for a person across the photos in your library.
+              <h3 data-i18n="workshopTitle">
+                Describe it. Let the agent create.
+              </h3>
+              <p data-i18n="workshopDescription" class="case-description">
+                The agent selects the tools, configures the task, and generates
+                your result.
               </p>
-              <blockquote data-i18n="personQuery" class="query">
-                Find group photos featuring this person.
-              </blockquote>
             </div>
-            <figure class="media-slot" data-image-slot="search-person">
-              <div
-                class="visual-placeholder"
-                role="img"
-                aria-label="Concept illustration, not a product screenshot"
-              >
-                <svg
-                  class="concept-art"
-                  viewBox="0 0 480 260"
-                  aria-hidden="true"
-                >
-                  <use href="#concept-person" /></svg
-                ><span data-i18n="concept" class="concept-label"
-                  >Concept illustration</span
-                >
+            <figure class="media-slot" data-image-slot="create-workshop">
+              <div class="image-display baked-perspective">
+                <img
+                  src="assets/media/create-workshop-perspective.png"
+                  width="1536"
+                  height="1024"
+                  alt="Supplied perspective illustration of Generation Workshop creating a beverage poster"
+                  loading="lazy"
+                />
               </div>
             </figure>
           </article>
-        </div>
-      </section>
-      <section
-        class="feature-section container"
-        id="creation"
-        aria-labelledby="creation-title"
-      >
-        <h2 class="section-heading" id="creation-title" data-i18n="createTitle">
-          Make something of your own.
-        </h2>
-        <article class="case-row">
-          <div class="case-copy">
-            <h3 data-i18n="canvasTitle">Your assets. An infinite canvas.</h3>
-            <p data-i18n="canvasDescription" class="case-description">
-              Bring in your assets. Let the agent connect nodes and generate new
-              content.
-            </p>
-          </div>
-          <figure class="media-slot" data-image-slot="create-canvas">
-            <a
-              class="image-link"
-              data-lightbox="create-canvas"
-              href="assets/media/create-canvas.png"
-              aria-label="View original image"
-              ><img
-                src="assets/media/create-canvas.png"
-                width="1920"
-                height="1032"
-                alt="Product and portrait assets connected as nodes on Infinite Canvas"
-                loading="lazy"
-            /></a>
-          </figure>
-        </article>
-        <article class="case-row reverse">
-          <div class="case-copy">
-            <h3 data-i18n="workshopTitle">
-              Describe it. Let the agent create.
-            </h3>
-            <p data-i18n="workshopDescription" class="case-description">
-              The agent selects the tools, configures the task, and generates
-              your result.
-            </p>
-          </div>
-          <figure class="media-slot" data-image-slot="create-workshop">
-            <div class="image-display baked-perspective">
-              <img
-                src="assets/media/create-workshop-perspective.png"
-                width="1536"
-                height="1024"
-                alt="Supplied perspective illustration of Generation Workshop creating a beverage poster"
-                loading="lazy"
-              />
-            </div>
-          </figure>
-        </article>
-      </section>
+        </section>
+      </div>
     </main>
     <footer class="site-footer" id="download">
       <div class="container footer-top">
@@ -506,34 +558,51 @@
           ></a>
         </div>
         <div class="contact-block">
-          <h3 data-i18n="contactTitle">Contact the developer</h3>
+          <div class="contact-heading">
+            <img
+              class="developer-avatar"
+              src="assets/media/developer-avatar.svg"
+              width="88"
+              height="88"
+              alt="Developer avatar placeholder"
+              loading="lazy"
+            />
+            <h3 data-i18n="contactTitle">Contact the developer</h3>
+          </div>
           <div class="wechat-row">
             <span data-i18n="wechat" class="contact-label">WeChat</span
             ><span id="wechat-id" class="wechat-id" tabindex="0"
               >bebe_12138</span
             ><button
               class="copy-wechat icon-button"
+              data-copy="wechat"
               type="button"
               aria-label="Copy WeChat ID"
             >
               <svg class="icon" aria-hidden="true"><use href="#i-copy" /></svg>
             </button>
           </div>
+          <div class="contact-actions">
+            <button
+              class="contact-copy"
+              data-copy="email"
+              type="button"
+              aria-label="Copy email address"
+            >
+              <span data-i18n="email">Email</span
+              ><svg class="icon" aria-hidden="true"><use href="#i-copy" /></svg>
+            </button>
+            <button
+              class="contact-copy"
+              data-copy="homepage"
+              type="button"
+              aria-label="Copy homepage address"
+            >
+              <span data-i18n="homepage">Homepage</span
+              ><svg class="icon" aria-hidden="true"><use href="#i-copy" /></svg>
+            </button>
+          </div>
           <p class="copy-feedback" role="status" aria-live="polite"></p>
-          <a
-            class="contact-link"
-            data-link="homepage"
-            href="https://feima09.github.io/"
-            ><span data-i18n="homepage">Homepage</span
-            ><svg class="icon" aria-hidden="true">
-              <use href="#i-arrow" /></svg></a
-          ><a
-            class="contact-link"
-            data-link="email"
-            href="mailto:xuhongbo@gml.ac.cn"
-            ><span data-i18n="email" class="contact-label">Email</span
-            ><span>xuhongbo@gml.ac.cn</span></a
-          >
         </div>
       </div>
       <div class="container footer-bottom">
