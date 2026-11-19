@@ -13,6 +13,14 @@
         "An agent-powered platform for managing and using your local data.",
       download: "Download for Windows",
       watch: "Watch demo",
+      highlightsLabel: "Product highlights",
+      formatsDetail: "File formats",
+      indexingTitle: "Local indexing",
+      indexingDetail: "Original file paths stay unchanged",
+      localAiTitle: "Local AI",
+      localAiDetail: "Image and video models: local deployment or API",
+      securityTitle: "Data security",
+      securityDetail: "All data is stored locally",
       promoTitle: "See Everything Agent in action.",
       demoSoon: "Demo coming soon",
       manageTitle: "A place for everything.",
@@ -95,6 +103,14 @@
       intro: "Agent 驱动的本地数据管理与数据应用平台。",
       download: "下载 Windows 版",
       watch: "观看演示",
+      highlightsLabel: "产品特性",
+      formatsDetail: "文件格式",
+      indexingTitle: "本地索引",
+      indexingDetail: "不改变源文件路径",
+      localAiTitle: "AI 能力本地化",
+      localAiDetail: "图片、视频模型支持本地部署或 API",
+      securityTitle: "数据安全",
+      securityDetail: "数据全都存储在本地",
       promoTitle: "看看 Everything Agent 如何工作。",
       demoSoon: "演示即将上线",
       manageTitle: "让素材，各就其位。",
@@ -330,6 +346,7 @@
       ),
     );
     $(".language-switch").setAttribute("aria-label", t("language"));
+    $(".hero-highlights").setAttribute("aria-label", t("highlightsLabel"));
     navigation.setAttribute("aria-label", t("navigation"));
     menuButton.setAttribute(
       "aria-label",
