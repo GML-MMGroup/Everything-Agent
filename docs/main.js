@@ -25,15 +25,9 @@
       promoTitle: "See Everything Agent in action.",
       demoSoon: "Demo coming soon",
       manageTitle: "A place for everything.",
-      libraryTitle: "AI reads the details.",
-      libraryDescription:
-        "Descriptions, tags, transcripts, and extracted text — from the assets you already have.",
       collectionsTitle: "Organize your way.",
       collectionsDescription:
         "Group assets into collections, then open a folder to browse what belongs together.",
-      stepCreate: "Create a collection",
-      stepImport: "Add assets",
-      stepBrowse: "Browse the assets",
       searchTitle: "A clue is all you need.",
       documentTitle: "Ask your documents.",
       documentQuery: "What is the contract amount for the GEO system?",
@@ -90,11 +84,6 @@
       videoLabel: "Everything Agent product demo",
       videoUnavailable: "Demo temporarily unavailable",
       conceptAlt: "Concept illustration, not a product screenshot",
-      analysisTypes: "AI analysis by asset type",
-      analysisImage: "Images",
-      analysisVideo: "Video",
-      analysisAudio: "Audio",
-      analysisDocument: "Documents",
       analysisImageSummary:
         "Scene descriptions and tags make the contents of an image searchable.",
       analysisVideoSummary:
@@ -107,6 +96,10 @@
       peopleDescription:
         "Recognize faces, group them by person, and find the assets each person appears in.",
       referenceLabel: "Reference frame",
+      analysisImageTitle: "Images, understood.",
+      analysisVideoTitle: "Understand what happens on screen.",
+      analysisAudioTitle: "Spoken words, written down.",
+      analysisDocumentTitle: "Document content, extracted.",
     },
     zh: {
       skip: "跳到正文",
@@ -131,15 +124,9 @@
       promoTitle: "看看 Everything Agent 如何工作。",
       demoSoon: "演示即将上线",
       manageTitle: "让素材，各就其位。",
-      libraryTitle: "素材里的信息，AI 帮你读懂。",
-      libraryDescription:
-        "从图片描述、视频理解，到音频转录、文档提取，让素材内容变得可检索。",
       collectionsTitle: "按你的方式，组织素材。",
       collectionsDescription:
         "用分类文件夹组织素材，展开预览，再进入分类查看内容。",
-      stepCreate: "新建资产分类",
-      stepImport: "导入素材",
-      stepBrowse: "查看分类内素材",
       searchTitle: "从一点线索，找到所需。",
       documentTitle: "文档细节，一问便知。",
       documentQuery: "GEO 系统的合同金额是多少？",
@@ -191,11 +178,6 @@
       videoLabel: "Everything Agent 产品演示",
       videoUnavailable: "演示暂时无法播放",
       conceptAlt: "功能示意，非产品运行截图",
-      analysisTypes: "按素材类型查看 AI 解析",
-      analysisImage: "图片",
-      analysisVideo: "视频",
-      analysisAudio: "音频",
-      analysisDocument: "文档",
       analysisImageSummary: "理解画面内容，生成场景描述与标签。",
       analysisVideoSummary: "描述视频中的动作、场景与镜头变化。",
       analysisAudioSummary: "将语音转成带有时间标记的文字。",
@@ -204,6 +186,10 @@
       peopleDescription:
         "自动识别人脸，按人物归类，快速定位这个人出现过的素材。",
       referenceLabel: "参考截图",
+      analysisImageTitle: "图片内容，AI 帮你读懂。",
+      analysisVideoTitle: "理解视频中的每个场景。",
+      analysisAudioTitle: "音频内容，自动转成文字。",
+      analysisDocumentTitle: "文档内容，自动提取。",
     },
   };
 
@@ -334,43 +320,7 @@
     image.addEventListener("error", fallback, { once: true });
     if (image.complete && image.naturalWidth === 0) fallback();
   }
-  $$("[data-image-slot]")
-    .filter((slot) => !slot.closest("[hidden]"))
-    .forEach(renderImage);
-
-  // Manual, keyboard-accessible tabs. Hidden examples are loaded only when selected.
-  const analysisTabs = $$("[data-analysis-tab]");
-  function selectAnalysis(tab) {
-    analysisTabs.forEach((button) => {
-      const active = button === tab;
-      button.setAttribute("aria-selected", String(active));
-      button.tabIndex = active ? 0 : -1;
-      const panel = document.getElementById(
-        button.getAttribute("aria-controls"),
-      );
-      panel.hidden = !active;
-      if (active)
-        $$("[data-image-slot]", panel).forEach((slot) => {
-          if (!$("img", slot)) renderImage(slot);
-        });
-    });
-    updateLanguage();
-  }
-  analysisTabs.forEach((tab, index) => {
-    tab.addEventListener("click", () => selectAnalysis(tab));
-    tab.addEventListener("keydown", (event) => {
-      let next;
-      if (event.key === "ArrowRight") next = (index + 1) % analysisTabs.length;
-      if (event.key === "ArrowLeft")
-        next = (index - 1 + analysisTabs.length) % analysisTabs.length;
-      if (event.key === "Home") next = 0;
-      if (event.key === "End") next = analysisTabs.length - 1;
-      if (next !== undefined) {
-        event.preventDefault();
-        analysisTabs[next].focus();
-      }
-    });
-  });
+  $$("[data-image-slot]").forEach(renderImage);
 
   const promo = $("[data-video-slot]");
   function showVideoPending(state = "demoSoon") {
@@ -431,7 +381,6 @@
         String(button.dataset.language === language),
       ),
     );
-    $("[data-analysis-tabs]").setAttribute("aria-label", t("analysisTypes"));
     $(".language-switch").setAttribute("aria-label", t("language"));
     $(".hero-highlights").setAttribute("aria-label", t("highlightsLabel"));
     const aiDetail = $('[data-i18n="localAiDetail"]');

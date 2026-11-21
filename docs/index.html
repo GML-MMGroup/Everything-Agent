@@ -45,9 +45,9 @@
       type="font/ttf"
       crossorigin
     />
-    <link rel="stylesheet" href="styles.css?v=20261121-1" />
-    <script src="site-config.js?v=20261121-1" defer></script>
-    <script src="main.js?v=20261121-1" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20261121-2" />
+    <script src="site-config.js?v=20261121-2" defer></script>
+    <script src="main.js?v=20261121-2" defer></script>
   </head>
   <body>
     <svg
@@ -303,153 +303,62 @@
           >
             A place for everything.
           </h2>
-          <article class="case-row case-showcase analysis-showcase">
+          <article class="case-row" data-case="analysis-image">
             <div class="case-copy">
-              <h3 data-i18n="libraryTitle">AI reads the details.</h3>
-              <p class="case-description" data-i18n="libraryDescription">
-                Descriptions, tags, transcripts, and extracted text — from the
-                assets you already have.
+              <h3 data-i18n="analysisImageTitle">Images, understood.</h3>
+              <p class="case-description" data-i18n="analysisImageSummary">
+                Scene descriptions and tags make the contents of an image
+                searchable.
               </p>
             </div>
-            <div
-              class="analysis-tabs"
-              role="tablist"
-              data-analysis-tabs
-              aria-label="AI analysis by asset type"
-            >
-              <button
-                type="button"
-                id="analysis-tab-image"
-                role="tab"
-                data-analysis-tab="image"
-                aria-selected="true"
-                aria-controls="analysis-panel-image"
-                tabindex="0"
-                data-i18n="analysisImage"
-              >
-                Images
-              </button>
-              <button
-                type="button"
-                id="analysis-tab-video"
-                role="tab"
-                data-analysis-tab="video"
-                aria-selected="false"
-                aria-controls="analysis-panel-video"
-                tabindex="-1"
-                data-i18n="analysisVideo"
-              >
-                Video
-              </button>
-              <button
-                type="button"
-                id="analysis-tab-audio"
-                role="tab"
-                data-analysis-tab="audio"
-                aria-selected="false"
-                aria-controls="analysis-panel-audio"
-                tabindex="-1"
-                data-i18n="analysisAudio"
-              >
-                Audio
-              </button>
-              <button
-                type="button"
-                id="analysis-tab-document"
-                role="tab"
-                data-analysis-tab="document"
-                aria-selected="false"
-                aria-controls="analysis-panel-document"
-                tabindex="-1"
-                data-i18n="analysisDocument"
-              >
-                Documents
-              </button>
-            </div>
-            <div class="analysis-stage">
-              <div
-                id="analysis-panel-image"
-                class="analysis-panel"
-                role="tabpanel"
-                aria-labelledby="analysis-tab-image"
-              >
-                <p class="analysis-summary" data-i18n="analysisImageSummary">
-                  Scene descriptions and tags make the contents of an image
-                  searchable.
-                </p>
-                <div class="analysis-visual">
-                  <figure
-                    class="media-slot"
-                    data-image-slot="analysis-image"
-                  ></figure>
-                  <figure
-                    class="media-slot analysis-detail"
-                    data-image-slot="analysis-image-detail"
-                  ></figure>
-                </div>
-              </div>
-              <div
-                id="analysis-panel-video"
-                class="analysis-panel"
-                role="tabpanel"
-                aria-labelledby="analysis-tab-video"
-                hidden
-              >
-                <p class="analysis-summary" data-i18n="analysisVideoSummary">
-                  AI describes the action and scene changes in your video.
-                </p>
-                <div class="analysis-visual">
-                  <figure
-                    class="media-slot"
-                    data-image-slot="analysis-video"
-                  ></figure>
-                  <figure
-                    class="media-slot analysis-detail"
-                    data-image-slot="analysis-video-detail"
-                  ></figure>
-                </div>
-              </div>
-              <div
-                id="analysis-panel-audio"
-                class="analysis-panel"
-                role="tabpanel"
-                aria-labelledby="analysis-tab-audio"
-                hidden
-              >
-                <p class="analysis-summary" data-i18n="analysisAudioSummary">
-                  Turn spoken words into a transcript with timestamps.
-                </p>
-                <div class="analysis-visual analysis-single">
-                  <figure
-                    class="media-slot"
-                    data-image-slot="analysis-audio"
-                  ></figure>
-                </div>
-              </div>
-              <div
-                id="analysis-panel-document"
-                class="analysis-panel"
-                role="tabpanel"
-                aria-labelledby="analysis-tab-document"
-                hidden
-              >
-                <p class="analysis-summary" data-i18n="analysisDocumentSummary">
-                  Extract document text with page references for later search.
-                </p>
-                <div class="analysis-visual">
-                  <figure
-                    class="media-slot"
-                    data-image-slot="analysis-document"
-                  ></figure>
-                  <figure
-                    class="media-slot analysis-detail"
-                    data-image-slot="analysis-document-detail"
-                  ></figure>
-                </div>
-              </div>
-            </div>
+            <figure
+              class="media-slot case-visual case-perspective"
+              data-image-slot="analysis-image"
+            ></figure>
           </article>
-          <article class="case-row case-showcase collection-showcase">
+          <article class="case-row reverse" data-case="analysis-video">
+            <div class="case-copy">
+              <h3 data-i18n="analysisVideoTitle">
+                Understand what happens on screen.
+              </h3>
+              <p class="case-description" data-i18n="analysisVideoSummary">
+                AI describes the action and scene changes in your video.
+              </p>
+            </div>
+            <figure
+              class="media-slot case-visual case-perspective"
+              data-image-slot="analysis-video"
+            ></figure>
+          </article>
+          <article class="case-row" data-case="analysis-audio">
+            <div class="case-copy">
+              <h3 data-i18n="analysisAudioTitle">
+                Spoken words, written down.
+              </h3>
+              <p class="case-description" data-i18n="analysisAudioSummary">
+                Turn spoken words into a transcript with timestamps.
+              </p>
+            </div>
+            <figure
+              class="media-slot case-visual case-perspective"
+              data-image-slot="analysis-audio"
+            ></figure>
+          </article>
+          <article class="case-row reverse" data-case="analysis-document">
+            <div class="case-copy">
+              <h3 data-i18n="analysisDocumentTitle">
+                Document content, extracted.
+              </h3>
+              <p class="case-description" data-i18n="analysisDocumentSummary">
+                Extract document text with page references for later search.
+              </p>
+            </div>
+            <figure
+              class="media-slot case-visual case-perspective"
+              data-image-slot="analysis-document"
+            ></figure>
+          </article>
+          <article class="case-row" data-case="collections">
             <div class="case-copy">
               <h3 data-i18n="collectionsTitle">Organize your way.</h3>
               <p class="case-description" data-i18n="collectionsDescription">
@@ -457,9 +366,9 @@
                 belongs together.
               </p>
             </div>
-            <div class="collection-visuals">
+            <div class="case-visual collection-stack case-perspective">
               <figure
-                class="media-slot tilt-subtle"
+                class="media-slot"
                 data-image-slot="manage-collections"
               ></figure>
               <figure
@@ -482,7 +391,7 @@
             >
               A clue is all you need.
             </h2>
-            <article class="case-row case-showcase search-showcase">
+            <article class="case-row reverse" data-case="search-document">
               <div class="case-copy">
                 <h3 data-i18n="documentTitle">Ask your documents.</h3>
                 <p class="case-description" data-i18n="documentDescription">
@@ -492,18 +401,12 @@
                   What is the contract amount for the GEO system?
                 </blockquote>
               </div>
-              <div class="evidence-pair">
-                <figure
-                  class="media-slot evidence-result"
-                  data-image-slot="search-document"
-                ></figure>
-                <figure
-                  class="media-slot evidence-dialogue"
-                  data-image-slot="search-document-dialogue"
-                ></figure>
-              </div>
+              <figure
+                class="media-slot case-visual case-perspective"
+                data-image-slot="search-document"
+              ></figure>
             </article>
-            <article class="case-row case-showcase search-showcase">
+            <article class="case-row" data-case="search-media">
               <div class="case-copy">
                 <h3 data-i18n="mediaTitle">Find the exact moment.</h3>
                 <p class="case-description" data-i18n="mediaDescription">
@@ -514,18 +417,12 @@
                   ecosystem.
                 </blockquote>
               </div>
-              <div class="evidence-pair">
-                <figure
-                  class="media-slot evidence-result"
-                  data-image-slot="search-media"
-                ></figure>
-                <figure
-                  class="media-slot evidence-dialogue"
-                  data-image-slot="search-media-dialogue"
-                ></figure>
-              </div>
+              <figure
+                class="media-slot case-visual case-perspective"
+                data-image-slot="search-media"
+              ></figure>
             </article>
-            <article class="case-row case-showcase search-showcase">
+            <article class="case-row reverse" data-case="search-image">
               <div class="case-copy">
                 <h3 data-i18n="imageTitle">Find a video from a frame.</h3>
                 <p class="case-description" data-i18n="imageDescription">
@@ -535,26 +432,20 @@
                   Find the video containing this frame and show me where it
                   appears.
                 </blockquote>
+                <div class="reference-frame">
+                  <p data-i18n="referenceLabel">Reference frame</p>
+                  <figure
+                    class="media-slot"
+                    data-image-slot="search-image-reference"
+                  ></figure>
+                </div>
               </div>
-              <div class="reference-frame">
-                <p data-i18n="referenceLabel">Reference frame</p>
-                <figure
-                  class="media-slot"
-                  data-image-slot="search-image-reference"
-                ></figure>
-              </div>
-              <div class="evidence-pair">
-                <figure
-                  class="media-slot evidence-result"
-                  data-image-slot="search-image"
-                ></figure>
-                <figure
-                  class="media-slot evidence-dialogue"
-                  data-image-slot="search-image-dialogue"
-                ></figure>
-              </div>
+              <figure
+                class="media-slot case-visual case-perspective"
+                data-image-slot="search-image"
+              ></figure>
             </article>
-            <article class="case-row case-showcase search-showcase">
+            <article class="case-row" data-case="search-person">
               <div class="case-copy">
                 <h3 data-i18n="personTitle">Find familiar faces.</h3>
                 <p class="case-description" data-i18n="personDescription">
@@ -564,18 +455,12 @@
                   Find group photos featuring this person.
                 </blockquote>
               </div>
-              <div class="evidence-pair">
-                <figure
-                  class="media-slot evidence-result"
-                  data-image-slot="search-person"
-                ></figure>
-                <figure
-                  class="media-slot evidence-dialogue"
-                  data-image-slot="search-person-dialogue"
-                ></figure>
-              </div>
+              <figure
+                class="media-slot case-visual case-perspective"
+                data-image-slot="search-person"
+              ></figure>
             </article>
-            <article class="case-row case-showcase people-showcase">
+            <article class="case-row reverse" data-case="people-library">
               <div class="case-copy">
                 <h3 data-i18n="peopleTitle">A library, organized by faces.</h3>
                 <p class="case-description" data-i18n="peopleDescription">
@@ -584,7 +469,7 @@
                 </p>
               </div>
               <figure
-                class="media-slot tilt-subtle"
+                class="media-slot case-visual case-perspective"
                 data-image-slot="people-library"
               ></figure>
             </article>
@@ -602,7 +487,7 @@
           >
             Make something of your own.
           </h2>
-          <article class="case-row case-showcase canvas-showcase">
+          <article class="case-row" data-case="create-canvas">
             <div class="case-copy">
               <h3 data-i18n="canvasTitle">Your assets. An infinite canvas.</h3>
               <p class="case-description" data-i18n="canvasDescription">
@@ -611,7 +496,7 @@
               </p>
             </div>
             <figure
-              class="media-slot tilt-subtle"
+              class="media-slot case-visual case-perspective"
               data-image-slot="create-canvas"
             ></figure>
           </article>
