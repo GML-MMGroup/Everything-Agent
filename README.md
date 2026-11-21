@@ -3,7 +3,8 @@
 </p>
 
 <p align="center">
-  <strong>Everything for the AI era.</strong> An agent-powered platform for managing and using your local data — from organizing files and finding details to creating with your own assets.
+  <strong>Everything for the AI era.</strong><br>
+  An agent-powered platform for managing and using your local data — from organizing files and finding details to creating with your own assets.
 </p>
 
 <p align="center">
