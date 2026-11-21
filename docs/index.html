@@ -59,9 +59,9 @@
       type="font/ttf"
       crossorigin
     />
-    <link rel="stylesheet" href="styles.css?v=20261121-3" />
+    <link rel="stylesheet" href="styles.css?v=20261121-pricing" />
     <script src="site-config.js?v=20261121-3" defer></script>
-    <script src="main.js?v=20261121-3" defer></script>
+    <script src="main.js?v=20261121-pricing" defer></script>
   </head>
   <body>
     <svg
@@ -161,6 +161,8 @@
             ><span data-i18n="navSearch">Search</span></a
           ><a href="#creation" data-section-link="creation"
             ><span data-i18n="navCreate">Create</span></a
+          ><a href="#pricing" data-section-link="pricing"
+            ><span data-i18n="navPricing">Pricing</span></a
           ><a
             data-link="repository"
             href="https://github.com/GML-MMGroup/Everything-Agent"
@@ -534,6 +536,105 @@
             </figure>
           </article>
         </section>
+        <section
+          class="pricing-section container"
+          id="pricing"
+          aria-labelledby="pricing-title"
+        >
+          <div class="pricing-heading">
+            <h2 id="pricing-title" data-i18n="pricingTitle">Pricing</h2>
+            <p data-i18n="pricingDescription">
+              From personal creation to a shared team library.
+            </p>
+          </div>
+          <div class="pricing-grid">
+            <article class="pricing-card" aria-labelledby="free-plan-title">
+              <header class="plan-heading">
+                <h3 id="free-plan-title" data-i18n="freePlan">Free</h3>
+                <p data-i18n="freeAudience">For personal creators</p>
+              </header>
+              <div class="plan-price">
+                <span>$0</span><span class="price-currency">USD</span>
+              </div>
+              <p class="plan-detail" data-i18n="freeDetail">
+                The GitHub edition
+              </p>
+              <ul class="plan-features">
+                <li data-i18n="freeLibrary">Basic asset library</li>
+                <li data-i18n="freeWorkshop">Generation Workshop</li>
+              </ul>
+              <a
+                class="button button-primary plan-action"
+                data-link="download"
+                href="https://github.com/GML-MMGroup/Everything-Agent/releases/latest"
+                ><span data-i18n="freeAction">Download Free</span>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-download" />
+                </svg>
+              </a>
+            </article>
+            <article
+              class="pricing-card plan-personal"
+              aria-labelledby="personal-plan-title"
+            >
+              <header class="plan-heading">
+                <h3 id="personal-plan-title" data-i18n="personalPlan">
+                  Personal
+                </h3>
+                <p data-i18n="personalAudience">For creators who want it all</p>
+              </header>
+              <div class="plan-price">
+                <span>$599</span><span class="price-currency">USD</span>
+              </div>
+              <p class="plan-detail" data-i18n="personalDetail">
+                The full personal edition
+              </p>
+              <ul class="plan-features">
+                <li data-i18n="personalIncludes">Everything in Free</li>
+                <li data-i18n="personalPublishing">
+                  PPT &amp; WeChat articles
+                </li>
+                <li data-i18n="personalCreation">
+                  Infinite Canvas &amp; smart editing
+                </li>
+                <li data-i18n="personalExtensions">Additional extensions</li>
+                <li data-i18n="personalUpdates">Regular feature updates</li>
+              </ul>
+              <a
+                class="button plan-action plan-action-featured"
+                href="#contact"
+              >
+                <span data-i18n="personalAction">Contact to purchase</span>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-arrow" />
+                </svg>
+              </a>
+            </article>
+            <article class="pricing-card" aria-labelledby="team-plan-title">
+              <header class="plan-heading">
+                <h3 id="team-plan-title" data-i18n="teamPlan">Team</h3>
+                <p data-i18n="teamAudience">For teams sharing assets</p>
+              </header>
+              <div class="plan-price plan-price-custom">
+                <span data-i18n="teamPrice">Custom</span>
+              </div>
+              <p class="plan-detail" data-i18n="teamDetail">
+                Built around your team's needs
+              </p>
+              <ul class="plan-features">
+                <li data-i18n="teamIncludes">All Personal features</li>
+                <li data-i18n="teamLibrary">Shared team asset library</li>
+                <li data-i18n="teamCustomization">Enterprise customization</li>
+              </ul>
+              <a class="button button-primary plan-action" href="#contact">
+                <span data-i18n="teamAction">Contact us</span>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-arrow" />
+                </svg>
+              </a>
+            </article>
+          </div>
+        </section>
       </div>
     </main>
     <footer class="site-footer" id="download">
@@ -541,8 +642,8 @@
         <div class="download-block">
           <h2 data-i18n="downloadTitle">Get Everything Agent.</h2>
           <p data-i18n="licenseCopy" class="license-copy">
-            Free for personal, non-commercial use. Contact the developer for the
-            latest version or commercial licensing.
+            The Free edition is free for personal, non-commercial use. Contact
+            the developer for paid plans or commercial licensing.
           </p>
           <a
             class="button button-primary"
@@ -559,7 +660,12 @@
             ><svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg
           ></a>
         </div>
-        <div class="contact-block">
+        <div
+          class="contact-block"
+          id="contact"
+          tabindex="-1"
+          aria-labelledby="contact-title"
+        >
           <div class="contact-heading">
             <img
               class="developer-avatar"
@@ -569,7 +675,9 @@
               alt="Developer avatar"
               loading="lazy"
             />
-            <h3 data-i18n="contactTitle">Contact the developer</h3>
+            <h3 id="contact-title" data-i18n="contactTitle">
+              Contact the developer
+            </h3>
           </div>
           <div class="contact-actions">
             <button
