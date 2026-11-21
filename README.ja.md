@@ -1,9 +1,9 @@
 <p align="center">
-  <img src="./docs/assets/logo.webp" alt="Everything Agent" width="540">
+  <img src="./assets/logo-readme.png" alt="Everything Agent" width="540">
 </p>
 
 <p align="center">
-  <strong>AI 時代の Everything。</strong> エージェントがローカルデータの管理と活用を支援するプラットフォーム。ファイルの整理や情報の検索から、手元の素材を使った制作まで。
+  エージェントがローカルデータの管理と活用を支援するプラットフォーム。
 </p>
 
 <p align="center">

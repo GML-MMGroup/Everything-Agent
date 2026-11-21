@@ -1,10 +1,9 @@
 <p align="center">
-  <img src="./docs/assets/logo.webp" alt="Everything Agent" width="540">
+  <img src="./assets/logo-readme.png" alt="Everything Agent" width="540">
 </p>
 
 <p align="center">
-  <strong>Everything for the AI era.</strong><br>
-  An agent-powered platform for managing and using your local data — from organizing files and finding details to creating with your own assets.
+  An agent-powered platform for managing and using your local data
 </p>
 
 <p align="center">

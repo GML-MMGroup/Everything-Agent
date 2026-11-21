@@ -1,9 +1,9 @@
 <p align="center">
-  <img src="./docs/assets/logo.webp" alt="Everything Agent" width="540">
+  <img src="./assets/logo-readme.png" alt="Everything Agent" width="540">
 </p>
 
 <p align="center">
-  <strong>AI 时代的 Everything。</strong> Agent 驱动的本地数据管理与数据应用平台，从整理文件、查找细节，到用自己的素材完成创作。
+  Agent 驱动的本地数据管理与数据应用平台。
 </p>
 
 <p align="center">

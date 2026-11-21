@@ -1,9 +1,9 @@
 <p align="center">
-  <img src="./docs/assets/logo.webp" alt="Everything Agent" width="540">
+  <img src="./assets/logo-readme.png" alt="Everything Agent" width="540">
 </p>
 
 <p align="center">
-  <strong>AI 시대의 Everything.</strong> 에이전트 기반 로컬 데이터 관리·활용 플랫폼입니다. 파일 정리와 세부 정보 검색부터 보유한 자료를 활용한 창작까지 지원합니다.
+  에이전트 기반 로컬 데이터 관리·활용 플랫폼입니다.
 </p>
 
 <p align="center">
