@@ -3,6 +3,10 @@
 </p>
 
 <p align="center">
+  <strong>Everything for the AI era.</strong> An agent-powered platform for managing and using your local data — from organizing files and finding details to creating with your own assets.
+</p>
+
+<p align="center">
   <a href="./assets/product-overview.png"><img src="./assets/product-overview.png" alt="Everything Agent product overview: data management, search, and creation for the AI era" width="1000"></a>
 </p>
 
@@ -13,8 +17,6 @@
 <p align="center">
   <a href="https://gml-mmgroup.github.io/Everything-Agent/">Website</a> &nbsp; · &nbsp; <a href="https://github.com/GML-MMGroup/Everything-Agent/releases/latest">Download for Windows</a> &nbsp; · &nbsp; <a href="https://github.com/GML-MMGroup/Everything-Agent/issues">Feedback</a> &nbsp; · &nbsp; <a href="./LICENSE.txt">License</a>
 </p>
-
-**Everything for the AI era.** An agent-powered platform for managing and using your local data — from organizing files and finding details to creating with your own assets.
 
 ## What you can do
 

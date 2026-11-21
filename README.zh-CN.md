@@ -3,6 +3,10 @@
 </p>
 
 <p align="center">
+  <strong>AI 时代的 Everything。</strong> Agent 驱动的本地数据管理与数据应用平台，从整理文件、查找细节，到用自己的素材完成创作。
+</p>
+
+<p align="center">
   <a href="./assets/product-overview.png"><img src="./assets/product-overview.png" alt="Everything Agent 英文产品介绍图：AI 时代的数据管理、检索与创作" width="1000"></a>
 </p>
 
@@ -13,8 +17,6 @@
 <p align="center">
   <a href="https://gml-mmgroup.github.io/Everything-Agent/">产品官网</a> &nbsp; · &nbsp; <a href="https://github.com/GML-MMGroup/Everything-Agent/releases/latest">下载 Windows 版</a> &nbsp; · &nbsp; <a href="https://github.com/GML-MMGroup/Everything-Agent/issues">问题反馈</a> &nbsp; · &nbsp; <a href="./LICENSE.txt">许可</a>
 </p>
-
-**AI 时代的 Everything。** Agent 驱动的本地数据管理与数据应用平台，从整理文件、查找细节，到用自己的素材完成创作。
 
 ## 你可以用它做什么
 

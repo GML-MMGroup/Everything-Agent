@@ -3,6 +3,10 @@
 </p>
 
 <p align="center">
+  <strong>AI 時代の Everything。</strong> エージェントがローカルデータの管理と活用を支援するプラットフォーム。ファイルの整理や情報の検索から、手元の素材を使った制作まで。
+</p>
+
+<p align="center">
   <a href="./assets/product-overview.png"><img src="./assets/product-overview.png" alt="Everything Agent の英語製品紹介画像：AI 時代のデータ管理・検索・制作" width="1000"></a>
 </p>
 
@@ -13,8 +17,6 @@
 <p align="center">
   <a href="https://gml-mmgroup.github.io/Everything-Agent/">公式サイト</a> &nbsp; · &nbsp; <a href="https://github.com/GML-MMGroup/Everything-Agent/releases/latest">Windows 版をダウンロード</a> &nbsp; · &nbsp; <a href="https://github.com/GML-MMGroup/Everything-Agent/issues">フィードバック</a> &nbsp; · &nbsp; <a href="./LICENSE.txt">ライセンス</a>
 </p>
-
-**AI 時代の Everything。** エージェントがローカルデータの管理と活用を支援するプラットフォーム。ファイルの整理や情報の検索から、手元の素材を使った制作まで。
 
 ## できること
 

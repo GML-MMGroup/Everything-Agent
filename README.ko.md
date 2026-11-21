@@ -3,6 +3,10 @@
 </p>
 
 <p align="center">
+  <strong>AI 시대의 Everything.</strong> 에이전트 기반 로컬 데이터 관리·활용 플랫폼입니다. 파일 정리와 세부 정보 검색부터 보유한 자료를 활용한 창작까지 지원합니다.
+</p>
+
+<p align="center">
   <a href="./assets/product-overview.png"><img src="./assets/product-overview.png" alt="Everything Agent 영문 제품 소개 이미지: AI 시대의 데이터 관리, 검색, 창작" width="1000"></a>
 </p>
 
@@ -13,8 +17,6 @@
 <p align="center">
   <a href="https://gml-mmgroup.github.io/Everything-Agent/">공식 웹사이트</a> &nbsp; · &nbsp; <a href="https://github.com/GML-MMGroup/Everything-Agent/releases/latest">Windows 버전 다운로드</a> &nbsp; · &nbsp; <a href="https://github.com/GML-MMGroup/Everything-Agent/issues">피드백</a> &nbsp; · &nbsp; <a href="./LICENSE.txt">라이선스</a>
 </p>
-
-**AI 시대의 Everything.** 에이전트 기반 로컬 데이터 관리·활용 플랫폼입니다. 파일 정리와 세부 정보 검색부터 보유한 자료를 활용한 창작까지 지원합니다.
 
 ## 주요 기능
 
