@@ -551,6 +551,7 @@ h1 {
 }
 .pricing-heading {
   margin-bottom: 40px;
+  text-align: center;
 }
 .pricing-heading h2 {
   font-size: 48px;
