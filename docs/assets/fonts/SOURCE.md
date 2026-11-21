@@ -15,7 +15,7 @@ The current resource-page CDN link returned an empty response in this environmen
 | HarmonyOS_Sans_SC_Regular.ttf | 297b088424be212207df2ce8b98e335468b782aa6b96832af0b8b773d711e2b1 |
 | HarmonyOS_Sans_SC_Medium.ttf  | 6ed1553edccddc48eb27ff25d134a4a715cf54211238d4840b3038576cba1944 |
 
-The website uses the Latin and Simplified Chinese faces under one CSS family with Unicode ranges, in weights 400 and 500. A visible font notice and link to the bundled agreement appear in the website footer.
+The website uses the Latin and Simplified Chinese faces under one CSS family with Unicode ranges, in weights 400 and 500. The bundled agreement and provenance are retained in this directory. The footer notice was removed at the site owner’s request on 2026-11-21.
 
 ## English italic faces
 

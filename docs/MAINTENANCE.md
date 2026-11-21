@@ -4,7 +4,7 @@
 
 ## 集中配置
 
-`site-config.js` 管理下载与联系方式、9 个图片展位、1 个宣传视频展位。资源相对于 `docs/`；使用 `assets/media/...`，不要以 `/` 开头。下载统一指向仓库 `/releases/latest`。
+`site-config.js` 管理下载与联系方式、产品截图、局部细节及 1 个宣传视频展位。资源相对于 `docs/`；使用 `assets/media/...`，不要以 `/` 开头。下载统一指向仓库 `/releases/latest`。
 
 每个图片配置包含：
 
@@ -16,29 +16,33 @@
 
 准备好文件后修改就绪标记即可，不需要改页面结构。`ready: false` 的路径不会被请求；加载失败会回退为标明“功能示意”的浅色展位，不重复请求。
 
-## 素材清单
+## 素材清单（2026-11-21 更新）
 
-所有以下路径均位于 `docs/assets/media/`。
+所有页面素材位于 `docs/assets/media/`。用户本轮提供的原图完整保留，未改写任何文字、金额、时间、人物标记或结果。
 
-| 文件                     | 当前情况                                 |
-| ------------------------ | ---------------------------------------- |
-| `hero.png`               | 原始数据资产库截图，完整复制             |
-| `manage-library.png`     | 数据资产库素材区域裁切，未修改内容       |
-| `manage-collections.png` | 数据资产库分类与导入入口裁切，未修改内容 |
-| `search-document.png`    | 待补 GEO 合同问答及文档依据截图          |
-| `search-media.png`       | 待补国产 AI 算力生态内容定位截图         |
-| `search-image.png`       | 待补以截图查找视频及位置的截图           |
-| `search-person.png`      | 待补人物照片与合照匹配截图               |
-| `create-canvas.png`      | 原始无限画布截图，完整复制               |
-| `create-workshop.png`    | 待补生成工坊饮料海报案例的清晰原图       |
-| `promo.mp4`              | 待补宣传视频                             |
-| `promo-poster.png`       | 待补宣传视频封面                         |
+| 文件                                        | 用途                                                            |
+| ------------------------------------------- | --------------------------------------------------------------- |
+| `hero.png`                                  | 新版资产库主图，完整复制自根目录 `assets/data-management-2.png` |
+| `image-label.png` / `video-label.png`       | 图片和视频的预览、AI 描述及标签                                 |
+| `audio-label.png` / `doc-label.png`         | 音频时间标记转录、文档提取文字与页码                            |
+| `assets-folders.png` / `assets-cla.png`     | 六个分类文件夹，以及分类内素材                                  |
+| `geo-doc-qa.png`                            | GEO 合同问答、原文及 Agent 回答                                 |
+| `video-qa.png`                              | 国产 AI 算力生态视频片段定位                                    |
+| `image-video-qa.png` / `Snipaste_image.png` | 以图找视频的结果及用户输入截图                                  |
+| `person-qa.png`                             | 人物合照检索；保留 Agent 原文中的不确定性说明                   |
+| `face-id.png`                               | 新增人物识别与人脸分类案例                                      |
+| `create-canvas.png`                         | 新版饮料素材创作画布，完整复制自 `assets/data-creation-1.png`   |
+| `create-workshop-perspective.png`           | 沿用用户先前提供的生成工坊效果图                                |
+| `create-workshop.png`                       | 仍待补生成工坊清晰原图                                          |
+| `promo.mp4` / `promo-poster.png`            | 仍待补宣传视频及封面                                            |
 
-另已复制用户提供的 `hero-perspective.png`、`manage-collections-perspective.png`、`create-workshop-perspective.png`。
+`site-config.js` 的 `crop: { x, y, width, height }` 使用原图像素坐标。页面通过 CSS 定位和裁切视口呈现局部，**不生成或改写图片文件**。`width` / `height` 仍是原图尺寸。每个裁切图的 `original` 指向完整截图，点击后查看未裁切原图。更新截图时一并调整尺寸与裁切坐标；移除 `crop` 即恢复完整展示。单张截图可以分别配置画面与解析/对话两个局部，两者来自同一原图。
 
-首屏采用真实原始截图和 CSS 透视；管理分类效果图未展示多个分类，继续使用真实分类截图。生成工坊使用用户提供的饮料海报透视效果图，当前 `ready: false`、`perspectiveReady: true`、`usePerspective: true`；没有对应的未倾斜原图，故此展位暂不提供原图放大按钮。补入 `create-workshop.png` 后将 `ready`、`originalReady` 设为 `true`，按需把 `usePerspective` 改为 `false`。
+AI 解析区为四个手动切换页：图片、视频、音频、文档。方向键和 Home/End 移动标签焦点，Enter/空格激活；初始仅加载图片页，其余在选择后加载。双语名称、说明、图片 alt 和弹层说明同步。手机上音频转录与六文件夹条保留可横向滚动的宽度，避免把文字和文件夹缩得过小；页面本身不横向溢出。
 
-`manage-library.png` 裁切范围为原始 `assets/data-management.png` 的 `(264,180)-(1908,1020)`；`manage-collections.png` 为 `(264,36)-(1908,600)`。两者点击后均展示 `hero.png` 完整原始界面。现有专利检索截图与本次四个查询不对应，因此不用于冒充查询结果。
+检索四个案例均使用真实截图，并列呈现结果和 Agent 对话；手机按顺序上下排列。分类文件夹、人物库和画布采用轻微 CSS 透视，平板和手机取消。主图继续使用独立透视与呼吸容器。没有新增自动播放或伪造产品操作。
+
+旧的 `manage-library.png`、`manage-collections.png` 及旧主图/分类透视效果图未再被页面引用，保留存档。生成工坊保持原效果图展示，因为对应清晰原图仍未提供；该图不添加原图放大入口。
 
 ## 宣传视频
 
@@ -52,7 +56,7 @@
 
 初访默认英文，不读取浏览器语言，也不读取旧版中文缓存。仅用户主动点击语言按钮时写入 `everything-agent-language-v2`。双语文案在 `main.js`，默认英文 HTML 在 `index.html`。修改文案时同步两处。
 
-字体来自[华为官方设计资源](https://developer.huawei.com/consumer/cn/design/resource/)的 HarmonyOS Sans 系列。页面使用本地 Regular/Medium 拉丁与简体中文字体，`font-display: swap`；原始字体文件未改名、未子集化、未转换。页脚明确标注字体并链接随包许可，详情见 `assets/fonts/SOURCE.md`。
+字体来自[华为官方设计资源](https://developer.huawei.com/consumer/cn/design/resource/)的 HarmonyOS Sans 系列。页面使用本地 Regular/Medium 拉丁与简体中文字体，`font-display: swap`；原始字体文件未改名、未子集化、未转换。字体许可及来源保留在本地资源目录，详情见 `assets/fonts/SOURCE.md`。
 
 首屏透视和呼吸动画使用两个独立容器，7 秒循环，上下移动 8px、最大缩放 0.4%。离开视口、页面隐藏或用户要求减少动态效果时停止；手机取消透视。
 
@@ -66,7 +70,7 @@ ln -s /data/hongbo.xu/Everything-Agent/docs /tmp/everything-agent-preview/Everyt
 python3 -m http.server 4174 --bind 127.0.0.1 --directory /tmp/everything-agent-preview
 ```
 
-访问 `http://127.0.0.1:4174/Everything-Agent/`。验证 1440px、768px、390px，以及两种语言、字体真实加载、动效暂停、9+1 展位、触控菜单、原图弹层、微信复制、视频就绪与未就绪状态、网络错误。截图、测试视频和临时脚本保存在仓库外，不提交。
+访问 `http://127.0.0.1:4174/Everything-Agent/`。验证 1440px、768px、390px，以及两种语言、字体真实加载、动效暂停、产品案例与宣传视频展位、触控菜单、原图弹层、微信复制、视频就绪与未就绪状态、网络错误。截图、测试视频和临时脚本保存在仓库外，不提交。
 
 样式和脚本链接带有缓存版本参数；更新这些资源时同步修改 `index.html` 中的 `?v=` 值，避免旧浏览器缓存混用。
 
@@ -88,7 +92,7 @@ python3 -m http.server 4174 --bind 127.0.0.1 --directory /tmp/everything-agent-p
 - Lettown Hills Italic 尚未接入：本地未提供字体文件，作者官方销售页提供独立的 Webfonts 许可。本轮尝试的 FreeFontDownload、FontsHut 下载入口均返回 HTTP 403，且免费条款仅限个人试用。英文页面已切换为原华为官方字体包的 HarmonyOS Sans Regular/Medium Italic 真实斜体，中文保持正体，不声明已经加载 Lettown Hills。准备可用于此官网的网页字体文件和许可后，再替换英文页面字体并验证实际渲染。[官方字体与授权](https://www.myfonts.com/products/italic-lettown-hills-15036/licenses)。
 - 本轮设计复查以用户指定背景为准：深色视频首屏配浅色文字；下方静态渐变；保留真实截图与签名 Logo；联系区域加入头像并收敛为复制操作。未生成或改写产品结果。
 
-- 导航固定透明叠在首屏视频上，全页保持浅色导航文字；桌面首屏标题上边距 `clamp(240px, 29vh, 360px)`，手机为 `clamp(200px, 28svh, 280px)`。背景视频使用 `object-fit: contain` 保留完整画面，保持九个产品图展位和独立宣传视频展位。
+- 导航固定透明叠在首屏视频上，全页保持浅色导航文字；桌面首屏标题上边距 `clamp(240px, 29vh, 360px)`，手机为 `clamp(200px, 28svh, 280px)`。背景视频使用 `object-fit: contain` 保留完整画面，保留产品截图与独立宣传视频展位。
 
 ## 黑色主题与毛玻璃联系栏
 
@@ -105,3 +109,5 @@ python3 -m http.server 4174 --bind 127.0.0.1 --directory /tmp/everything-agent-p
 四项内容由用户在本轮明确提供：30+ 文件格式；本地索引且不改变源文件路径；图片、视频模型支持本地部署或 API；数据全都存储在本地。双语正文与辅助标签在 `main.js` 中维护。关于本地存储的文案仅表述存储位置，没有扩写成“数据不会传输”或“所有 AI 必须离线运行”。
 
 特性条底色不透明度由 0.78 降为 0.52，保留 24px 背景模糊，辅助文字略微提亮以保持可读性。英文说明精简为 `Paths unchanged`、`Local or API`、`Stored locally`，标题和说明保持单行；最窄手机将英文标题调为 18px，并适当收紧列内留白。图像、视频模型的完整部署说明仍保留在 AI 项目的悬停提示及无障碍标签中，中英文同步更新；中文可见说明保持完整。
+
+本轮按用户要求移除页脚可见的 HarmonyOS 字体说明与许可链接，字体文件、随包许可和来源记录完整保留。

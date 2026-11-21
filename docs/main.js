@@ -25,15 +25,15 @@
       promoTitle: "See Everything Agent in action.",
       demoSoon: "Demo coming soon",
       manageTitle: "A place for everything.",
-      libraryTitle: "One library. Original locations.",
+      libraryTitle: "AI reads the details.",
       libraryDescription:
-        "Bring images, videos, audio, and documents together with AI-powered parsing.",
+        "Descriptions, tags, transcripts, and extracted text — from the assets you already have.",
       collectionsTitle: "Organize your way.",
       collectionsDescription:
-        "Create collections and add assets without moving the original files.",
+        "Group assets into collections, then open a folder to browse what belongs together.",
       stepCreate: "Create a collection",
       stepImport: "Add assets",
-      stepBrowse: "Browse collections",
+      stepBrowse: "Browse the assets",
       searchTitle: "A clue is all you need.",
       documentTitle: "Ask your documents.",
       documentQuery: "What is the contract amount for the GEO system?",
@@ -52,7 +52,7 @@
       createTitle: "Make something of your own.",
       canvasTitle: "Your assets. An infinite canvas.",
       canvasDescription:
-        "Bring in your assets. Let the agent connect nodes and generate new content.",
+        "Connect your product assets to new posters and videos, with the agent alongside your canvas.",
       workshopTitle: "Describe it. Let the agent create.",
       workshopDescription:
         "The agent selects the tools, configures the task, and generates your result.",
@@ -72,8 +72,6 @@
       copied: "WeChat ID copied",
       homepage: "Homepage",
       email: "Email",
-      fontNotice: "Typeset in HarmonyOS Sans",
-      fontLicense: "Font license",
       close: "Close",
       actualSize: "Actual size",
       fitImage: "Fit to screen",
@@ -92,6 +90,23 @@
       videoLabel: "Everything Agent product demo",
       videoUnavailable: "Demo temporarily unavailable",
       conceptAlt: "Concept illustration, not a product screenshot",
+      analysisTypes: "AI analysis by asset type",
+      analysisImage: "Images",
+      analysisVideo: "Video",
+      analysisAudio: "Audio",
+      analysisDocument: "Documents",
+      analysisImageSummary:
+        "Scene descriptions and tags make the contents of an image searchable.",
+      analysisVideoSummary:
+        "AI describes the action and scene changes in your video.",
+      analysisAudioSummary:
+        "Turn spoken words into a transcript with timestamps.",
+      analysisDocumentSummary:
+        "Extract document text with page references for later search.",
+      peopleTitle: "A library, organized by faces.",
+      peopleDescription:
+        "Recognize faces, group them by person, and find the assets each person appears in.",
+      referenceLabel: "Reference frame",
     },
     zh: {
       skip: "跳到正文",
@@ -116,14 +131,15 @@
       promoTitle: "看看 Everything Agent 如何工作。",
       demoSoon: "演示即将上线",
       manageTitle: "让素材，各就其位。",
-      libraryTitle: "统一纳管，原始路径不变。",
-      libraryDescription: "图片、音视频、文档统一管理，AI 自动解析内容。",
+      libraryTitle: "素材里的信息，AI 帮你读懂。",
+      libraryDescription:
+        "从图片描述、视频理解，到音频转录、文档提取，让素材内容变得可检索。",
       collectionsTitle: "按你的方式，组织素材。",
       collectionsDescription:
-        "新建分类、导入素材，自由组织，原始文件位置保持不变。",
+        "用分类文件夹组织素材，展开预览，再进入分类查看内容。",
       stepCreate: "新建资产分类",
       stepImport: "导入素材",
-      stepBrowse: "预览分类文件夹",
+      stepBrowse: "查看分类内素材",
       searchTitle: "从一点线索，找到所需。",
       documentTitle: "文档细节，一问便知。",
       documentQuery: "GEO 系统的合同金额是多少？",
@@ -140,7 +156,7 @@
       createTitle: "让自己的素材，成为作品。",
       canvasTitle: "你的素材，无限创作。",
       canvasDescription:
-        "导入私有素材，让 Agent 组织节点、自动连线并生成内容。",
+        "将产品素材连接到新的海报与视频，让 Agent 在画布中协助创作。",
       workshopTitle: "说出想法，Agent 完成创作。",
       workshopDescription: "Agent 自动选择生成模块、填写参数，完成生成任务。",
       concept: "功能示意",
@@ -158,8 +174,6 @@
       copied: "微信号已复制",
       homepage: "个人主页",
       email: "邮箱",
-      fontNotice: "本站使用 HarmonyOS Sans 字体",
-      fontLicense: "字体许可",
       close: "关闭",
       actualSize: "原始大小",
       fitImage: "适应屏幕",
@@ -177,6 +191,19 @@
       videoLabel: "Everything Agent 产品演示",
       videoUnavailable: "演示暂时无法播放",
       conceptAlt: "功能示意，非产品运行截图",
+      analysisTypes: "按素材类型查看 AI 解析",
+      analysisImage: "图片",
+      analysisVideo: "视频",
+      analysisAudio: "音频",
+      analysisDocument: "文档",
+      analysisImageSummary: "理解画面内容，生成场景描述与标签。",
+      analysisVideoSummary: "描述视频中的动作、场景与镜头变化。",
+      analysisAudioSummary: "将语音转成带有时间标记的文字。",
+      analysisDocumentSummary: "提取文档文字并关联页码，为后续检索提供依据。",
+      peopleTitle: "按人脸归类，按人物找素材。",
+      peopleDescription:
+        "自动识别人脸，按人物归类，快速定位这个人出现过的素材。",
+      referenceLabel: "参考截图",
     },
   };
 
@@ -230,6 +257,25 @@
     return block;
   }
 
+  function frameImage(image, item, cropped = true) {
+    const wrapper = image.parentElement;
+    const crop = cropped ? item.crop : null;
+    wrapper.classList.toggle("image-crop", Boolean(crop));
+    if (!crop) {
+      wrapper.style.removeProperty("aspect-ratio");
+      for (const key of ["--crop-width", "--crop-left", "--crop-top"])
+        image.style.removeProperty(key);
+      return;
+    }
+    wrapper.style.aspectRatio = crop.width + " / " + crop.height;
+    image.style.setProperty(
+      "--crop-width",
+      (item.width / crop.width) * 100 + "%",
+    );
+    image.style.setProperty("--crop-left", (-crop.x / crop.width) * 100 + "%");
+    image.style.setProperty("--crop-top", (-crop.y / crop.height) * 100 + "%");
+  }
+
   function renderImage(container) {
     const item = mediaById.get(container.dataset.imageSlot);
     const usePerspective =
@@ -266,6 +312,7 @@
       wrapper.append(image);
       container.replaceChildren(wrapper);
     }
+    frameImage(image, item, !usePerspective);
     image.alt = item.alt[language];
     const fallback = () => {
       // One recovery attempt only. Unready paths are never requested.
@@ -280,13 +327,50 @@
           () => container.replaceChildren(placeholder(item)),
           { once: true },
         );
+        frameImage(image, item);
         image.src = item.src;
       } else container.replaceChildren(placeholder(item));
     };
     image.addEventListener("error", fallback, { once: true });
     if (image.complete && image.naturalWidth === 0) fallback();
   }
-  $$("[data-image-slot]").forEach(renderImage);
+  $$("[data-image-slot]")
+    .filter((slot) => !slot.closest("[hidden]"))
+    .forEach(renderImage);
+
+  // Manual, keyboard-accessible tabs. Hidden examples are loaded only when selected.
+  const analysisTabs = $$("[data-analysis-tab]");
+  function selectAnalysis(tab) {
+    analysisTabs.forEach((button) => {
+      const active = button === tab;
+      button.setAttribute("aria-selected", String(active));
+      button.tabIndex = active ? 0 : -1;
+      const panel = document.getElementById(
+        button.getAttribute("aria-controls"),
+      );
+      panel.hidden = !active;
+      if (active)
+        $$("[data-image-slot]", panel).forEach((slot) => {
+          if (!$("img", slot)) renderImage(slot);
+        });
+    });
+    updateLanguage();
+  }
+  analysisTabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => selectAnalysis(tab));
+    tab.addEventListener("keydown", (event) => {
+      let next;
+      if (event.key === "ArrowRight") next = (index + 1) % analysisTabs.length;
+      if (event.key === "ArrowLeft")
+        next = (index - 1 + analysisTabs.length) % analysisTabs.length;
+      if (event.key === "Home") next = 0;
+      if (event.key === "End") next = analysisTabs.length - 1;
+      if (next !== undefined) {
+        event.preventDefault();
+        analysisTabs[next].focus();
+      }
+    });
+  });
 
   const promo = $("[data-video-slot]");
   function showVideoPending(state = "demoSoon") {
@@ -347,6 +431,7 @@
         String(button.dataset.language === language),
       ),
     );
+    $("[data-analysis-tabs]").setAttribute("aria-label", t("analysisTypes"));
     $(".language-switch").setAttribute("aria-label", t("language"));
     $(".hero-highlights").setAttribute("aria-label", t("highlightsLabel"));
     const aiDetail = $('[data-i18n="localAiDetail"]');
@@ -465,9 +550,17 @@
       dialog.close();
   });
   dialog.addEventListener("close", () => {
+    // A queued close event must not steal focus after another preview is opened.
+    if (dialog.open) return;
     document.body.classList.remove("modal-open");
     previewItem = null;
-    previewTrigger?.focus({ preventScroll: true });
+    const trigger = previewTrigger;
+    previewTrigger = null;
+    if (
+      document.activeElement === document.body ||
+      dialog.contains(document.activeElement)
+    )
+      trigger?.focus({ preventScroll: true });
   });
   $(".lightbox-zoom").addEventListener("click", () => {
     const zoomed = viewport.classList.toggle("is-zoomed");
