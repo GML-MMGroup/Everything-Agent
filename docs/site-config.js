@@ -22,7 +22,7 @@ window.EVERYTHING_AGENT_CONFIG = {
   images: [
     {
       id: "hero",
-      src: "assets/media/hero.png",
+      src: "assets/media/hero.webp",
       original: "assets/media/hero.png",
       perspective: null,
       ready: true,
@@ -208,22 +208,6 @@ window.EVERYTHING_AGENT_CONFIG = {
         y: 86,
         width: 1623,
         height: 880,
-      },
-    },
-    {
-      id: "search-image-reference",
-      src: "assets/media/Snipaste_image.png",
-      original: "assets/media/Snipaste_image.png",
-      perspective: null,
-      ready: true,
-      originalReady: true,
-      perspectiveReady: false,
-      usePerspective: false,
-      width: 276,
-      height: 167,
-      alt: {
-        en: "The reference frame uploaded for the video search",
-        zh: "以图找视频时上传的参考截图",
       },
     },
     {

@@ -20,21 +20,21 @@
 
 所有页面素材位于 `docs/assets/media/`。用户本轮提供的原图完整保留，未改写任何文字、金额、时间、人物标记或结果。
 
-| 文件                                        | 用途                                                            |
-| ------------------------------------------- | --------------------------------------------------------------- |
-| `hero.png`                                  | 新版资产库主图，完整复制自根目录 `assets/data-management-2.png` |
-| `image-label.png` / `video-label.png`       | 图片和视频的预览、AI 描述及标签                                 |
-| `audio-label.png` / `doc-label.png`         | 音频时间标记转录、文档提取文字与页码                            |
-| `assets-folders.png` / `assets-cla.png`     | 六个分类文件夹，以及分类内素材                                  |
-| `geo-doc-qa.png`                            | GEO 合同问答、原文及 Agent 回答                                 |
-| `video-qa.png`                              | 国产 AI 算力生态视频片段定位                                    |
-| `image-video-qa.png` / `Snipaste_image.png` | 以图找视频的结果及用户输入截图                                  |
-| `person-qa.png`                             | 人物合照检索；保留 Agent 原文中的不确定性说明                   |
-| `face-id.png`                               | 新增人物识别与人脸分类案例                                      |
-| `create-canvas.png`                         | 新版饮料素材创作画布，完整复制自 `assets/data-creation-1.png`   |
-| `create-workshop-perspective.png`           | 沿用用户先前提供的生成工坊效果图                                |
-| `create-workshop.png`                       | 仍待补生成工坊清晰原图                                          |
-| `promo.mp4` / `promo-poster.png`            | 仍待补宣传视频及封面                                            |
+| 文件                                    | 用途                                                            |
+| --------------------------------------- | --------------------------------------------------------------- |
+| `hero.png`                              | 新版资产库主图，完整复制自根目录 `assets/data-management-2.png` |
+| `image-label.png` / `video-label.png`   | 图片和视频的预览、AI 描述及标签                                 |
+| `audio-label.png` / `doc-label.png`     | 音频时间标记转录、文档提取文字与页码                            |
+| `assets-folders.png` / `assets-cla.png` | 六个分类文件夹，以及分类内素材                                  |
+| `geo-doc-qa.png`                        | GEO 合同问答、原文及 Agent 回答                                 |
+| `video-qa.png`                          | 国产 AI 算力生态视频片段定位                                    |
+| `image-video-qa.png`                    | 以图找视频的完整结果截图                                        |
+| `person-qa.png`                         | 人物合照检索；保留 Agent 原文中的不确定性说明                   |
+| `face-id.png`                           | 新增人物识别与人脸分类案例                                      |
+| `create-canvas.png`                     | 新版饮料素材创作画布，完整复制自 `assets/data-creation-1.png`   |
+| `create-workshop-perspective.png`       | 沿用用户先前提供的生成工坊效果图                                |
+| `create-workshop.png`                   | 仍待补生成工坊清晰原图                                          |
+| `promo.mp4` / `promo-poster.png`        | 仍待补宣传视频及封面                                            |
 
 `site-config.js` 的 `crop: { x, y, width, height }` 使用原图像素坐标。页面通过 CSS 定位和裁切视口呈现局部，**不生成或改写图片文件**。`width` / `height` 仍是原图尺寸。每个裁切图的 `original` 指向完整截图，点击后查看未裁切原图。更新截图时一并调整尺寸与裁切坐标；移除 `crop` 即恢复完整展示。检索图仅去除外围导航，保留同一个连续画面中的结果、用户提问与 Agent 回答。四类解析图不设裁切，直接展示完整截图。
 
@@ -42,7 +42,7 @@
 
 四类 AI 解析按图片、视频、音频、文档的顺序直接展示，每类一行文案和一张完整截图。不提供切换按钮，不拆出单独的描述小图，也不放大低分辨率文字片段。所有下方图片使用浏览器原生延迟加载。
 
-分类案例在同一个图片栏中上下堆叠六文件夹图与分类内素材图。四个检索案例都使用一张连续截图保留用户问题与产品结果；以图找视频的输入截图作为文字栏下方的小参考图。人物库、无限画布也恢复同样的左右布局。所有原图入口保持完整截图。
+分类案例在同一个图片栏中上下堆叠六文件夹图与分类内素材图。四个检索案例都使用一张连续截图保留用户问题与产品结果。以图找视频的独立参考小图已移除，原始 `Snipaste_image.png` 仅保留存档，不再加载。人物库、无限画布也恢复同样的左右布局。所有原图入口保持完整截图。
 
 右侧图片使用 `rotateY(-6deg)` 朝左侧文字旋转，左侧图片使用 `rotateY(6deg)` 朝右侧文字旋转，统一 `perspective(1600px)` 和 `rotateX(1deg)`。生成工坊自带透视效果，保持原样，不叠加旋转。平板和手机取消 CSS 透视。
 
@@ -115,3 +115,20 @@ python3 -m http.server 4174 --bind 127.0.0.1 --directory /tmp/everything-agent-p
 特性条底色不透明度由 0.78 降为 0.52，保留 24px 背景模糊，辅助文字略微提亮以保持可读性。英文说明精简为 `Paths unchanged`、`Local or API`、`Stored locally`，标题和说明保持单行；最窄手机将英文标题调为 18px，并适当收紧列内留白。图像、视频模型的完整部署说明仍保留在 AI 项目的悬停提示及无障碍标签中，中英文同步更新；中文可见说明保持完整。
 
 本轮按用户要求移除页脚可见的 HarmonyOS 字体说明与许可链接，字体文件、随包许可和来源记录完整保留。
+
+## Logo 与首图无损压缩
+
+页面展示改用 `assets/logo.webp` 和 `assets/media/hero.webp`。两者均使用 `cwebp -lossless -exact -m 6` 从 PNG 原图编码，保留完整尺寸和透明通道。已验证解码后的 RGBA 像素逐字节一致，没有降低分辨率或使用有损压缩。
+
+- Logo：447,543 → 316,210 字节（2172 × 724）。
+- 首图：1,081,016 → 750,392 字节（1920 × 1032）。
+- 合计减少 461,957 字节，约 30.2%。
+
+HTML 在字体前预加载这两张 WebP，并设置高获取优先级；导航 Logo、页脚 Logo 和站点图标复用同一 WebP 地址。首图仍在 HTML 中直接渲染，脚本复用已有元素，避免二次请求。首图原图弹层与分享预览仍使用保留的 `hero.png`，PNG 不作为首屏展示资源请求。
+
+更新原图后请同步重新编码 WebP：
+
+```bash
+cwebp -lossless -exact -m 6 docs/assets/logo.png -o docs/assets/logo.webp
+cwebp -lossless -exact -m 6 docs/assets/media/hero.png -o docs/assets/media/hero.webp
+```

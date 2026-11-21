@@ -95,7 +95,6 @@
       peopleTitle: "A library, organized by faces.",
       peopleDescription:
         "Recognize faces, group them by person, and find the assets each person appears in.",
-      referenceLabel: "Reference frame",
       analysisImageTitle: "Images, understood.",
       analysisVideoTitle: "Understand what happens on screen.",
       analysisAudioTitle: "Spoken words, written down.",
@@ -185,7 +184,6 @@
       peopleTitle: "按人脸归类，按人物找素材。",
       peopleDescription:
         "自动识别人脸，按人物归类，快速定位这个人出现过的素材。",
-      referenceLabel: "参考截图",
       analysisImageTitle: "图片内容，AI 帮你读懂。",
       analysisVideoTitle: "理解视频中的每个场景。",
       analysisAudioTitle: "音频内容，自动转成文字。",

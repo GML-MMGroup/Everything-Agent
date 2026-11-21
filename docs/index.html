@@ -30,7 +30,21 @@
       rel="canonical"
       href="https://gml-mmgroup.github.io/Everything-Agent/"
     />
-    <link rel="icon" href="assets/logo.png" type="image/png" />
+    <link rel="icon" href="assets/logo.webp" type="image/webp" />
+    <link
+      rel="preload"
+      as="image"
+      type="image/webp"
+      href="assets/logo.webp"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
+      type="image/webp"
+      href="assets/media/hero.webp"
+      fetchpriority="high"
+    />
     <link
       rel="preload"
       href="assets/fonts/HarmonyOS_Sans_Regular_Italic.ttf"
@@ -45,9 +59,9 @@
       type="font/ttf"
       crossorigin
     />
-    <link rel="stylesheet" href="styles.css?v=20261121-2" />
-    <script src="site-config.js?v=20261121-2" defer></script>
-    <script src="main.js?v=20261121-2" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20261121-3" />
+    <script src="site-config.js?v=20261121-3" defer></script>
+    <script src="main.js?v=20261121-3" defer></script>
   </head>
   <body>
     <svg
@@ -125,7 +139,9 @@
       <div class="nav-shell container">
         <a class="brand" href="#top" aria-label="Everything Agent"
           ><img
-            src="assets/logo.png"
+            src="assets/logo.webp"
+            fetchpriority="high"
+            decoding="async"
             width="2172"
             height="724"
             alt="Everything Agent" /></a
@@ -229,7 +245,9 @@
                   href="assets/media/hero.png"
                   aria-label="View original image"
                   ><img
-                    src="assets/media/hero.png"
+                    src="assets/media/hero.webp"
+                    loading="eager"
+                    decoding="async"
                     width="1920"
                     height="1032"
                     alt="The updated Everything Agent library with six collections and asset previews"
@@ -432,13 +450,6 @@
                   Find the video containing this frame and show me where it
                   appears.
                 </blockquote>
-                <div class="reference-frame">
-                  <p data-i18n="referenceLabel">Reference frame</p>
-                  <figure
-                    class="media-slot"
-                    data-image-slot="search-image-reference"
-                  ></figure>
-                </div>
               </div>
               <figure
                 class="media-slot case-visual case-perspective"
@@ -595,7 +606,7 @@
       <div class="container footer-bottom">
         <a class="brand" href="#top" aria-label="Everything Agent"
           ><img
-            src="assets/logo.png"
+            src="assets/logo.webp"
             width="2172"
             height="724"
             alt="Everything Agent"
